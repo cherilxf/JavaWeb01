@@ -1,0 +1,110 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.header-top{
+    width: 100%;
+    height: 120px;
+    background-color: pink;
+}
+
+.tab-content{
+}
+
+.tab-content .panel-person{
+    width: 100%;
+    height: 100%;
+}
+
+#exit{
+    display: block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    color: #f15353;
+    float: right;
+}
+
+#person_navbarLeft,
+#shop_navbarLeft,
+#consumer_navbarLeft{
+    width: 100%;
+    height: 100%;
+    background: #faf8f8;
+}
+
+#person_navbarLeft ul.nav.nav-pills.nav-stacked,
+#shop_navbarLeft ul.nav.nav-pills.nav-stacked,
+#consumer_navbarLeft ul.nav.nav-pills.nav-stacked{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#person_navbarLeft .nav-pills > li > a,
+#shop_navbarLeft .nav-pills > li > a,
+#consumer_navbarLeft .nav-pills > li > a{
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: 20px 26px;
+}
+
+#person_navbarLeft .nav-pills > li > a:hover,
+#person_navbarLeft .nav-pills > li.active > a,
+#person_navbarLeft .nav-pills > li.active > a:hover,
+#person_navbarLeft .nav-pills > li.active > a:focus,
+#shop_navbarLeft .nav-pills > li > a:hover,
+#shop_navbarLeft .nav-pills > li.active > a,
+#shop_navbarLeft .nav-pills > li.active > a:hover,
+#shop_navbarLeft .nav-pills > li.active > a:focus,
+#consumer_navbarLeft .nav-pills > li > a:hover,
+#consumer_navbarLeft .nav-pills > li.active > a,
+#consumer_navbarLeft .nav-pills > li.active > a:hover,
+#consumer_navbarLeft .nav-pills > li.active > a:focus{
+    background-color: #2aabd2;
+}
+
+
+#person_navbarLeft .tab-pane ul,
+#shop_navbarLeft .tab-pane ul,
+#consumer_navbarLeft .tab-pane ul{
+    list-style: none;
+    font-size: 14px;
+    line-height: 3;
+    padding: 0;
+}
+
+#person_contentRight,
+#shop_contentRight,
+#consumer_contentRight{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#person_contentRight form,
+#shop_contentRight div{
+    display: none;
+}
+
+#person_contentRight .active form,
+#shop_contentRight .active div{
+    display: block;
+}
+
+.person-form table{
+    border-collapse:collapse;
+}
+.person-form table tr{
+    height: 40px;
+}
+.person-form table tr td{
+    border: 1px solid #ccc;
+}
+

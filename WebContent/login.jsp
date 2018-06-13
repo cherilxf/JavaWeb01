@@ -16,8 +16,8 @@
             background-size: cover;
         }
         .login{
-            width: 240px;
-            height: 200px;
+            width: 280px;
+            height: 260px;
             margin: 100px 200px;
             padding: 10px 20px;
             border: 1px solid #e0e0e0;
@@ -31,28 +31,68 @@
             line-height: 60px;
             text-align: center;
         }
-        .name-box, .password-box{
+        
+        .name-box,
+        .password-box,
+        .type-box,
+        .field-box,
+        .register-box{
             text-align: center;
             margin-top: 6px;
         }
+        
+        .type-box{
+        	margin-bottom: 12px;
+        }
 
+		.login .type-box .user-type{
+            width: 120px;
+            height: 24px;
+        }
+        
         .login .name-box input,
         .login .password-box input{
             width: 160px;
             height: 18px;
             margin-left: 6px;
         }
+        
+         .field-box{
+            font-size: 12px;
+        }
+        .field-box label{
+            float: left;
+            padding-left: 40px;
+        }
+        .field-box a{
+            float: right;
+            text-decoration: none;
+            color: #f00;
+            padding-right: 40px;
+        }
+        
         .login-btn{
             text-align: center;
-            margin-top: 16px;
+            margin-top: 36px;
         }
         .login-btn input{
-            width: 42px;
-            height: 20px;
+            width: 198px;
+            height: 24px;
             margin: 0 5px;
             box-shadow: 0 2px 5px rgba(0,28,88,.3);
             cursor: pointer;
             color: #6d798c;
+        }
+        
+         .go-register{
+            float: right;
+            font-size: 12px;
+            padding-right: 40px;
+        }
+        .go-register a{
+            font-weight: 700;
+            text-decoration: none;
+            color: #449d44;
         }
         
         .bg-model{
@@ -95,40 +135,51 @@
     <script src="jquery-1.11.1.min.js"></script>
 	<script>
 		$(function(){
-			$('#register_Btn').click(function(){
-				window.location.href = "register.jsp";
-			});
-			
 			$('#login_Btn').click(function(){
-				$.ajax({
-					type: "post",
-					url: "loginCtrl",
-					async: false,
-					data: {
-						"userName": $('#name').val(),
-						"passWord": $('#pw').val()
-					},
-					dataType: "json",
-					success: function(data){
-						$('.bg-model').show();
-						if(data.state){
-							$('.bg-model .warn p').html("欢迎" + $('#name').val() + "登录成功");
-							$('.bg-model .warn .btn-confirm').click(function(){
-								window.location.href = "index.jsp";
-							});
-						}else{
-							$('.bg-model .warn p').html("登录失败，账号或密码有误");
-							$('.bg-model .warn .btn-confirm').click(function(){
-								window.location.href = "login.jsp";
-							});
+				if($('#name').val != "" && $('#pw').val() != ""){
+					$.ajax({
+						type: "post",
+						url: "loginCtrl",
+						async: true,
+						data: {
+							"userType": $(".user-type option:selected").val(),
+							"userName": $('#name').val(),
+							"passWord": $('#pw').val()
+						},
+						dataType: "json",
+						success: function(data){
+							$('.bg-model').show();
+							if(data.state){
+								$('.bg-model .warn p').html("欢迎" + $('#name').val() + "登录成功");
+								$('.bg-model .warn .btn-confirm').click(function(){
+									if($(".user-type option:selected").val() == "consumer"){
+										window.location.href = "index.jsp?account="+data.account;
+									}else if($(".user-type option:selected").val() == "shop"){
+										window.location.href = "shopIndex.jsp?account="+data.account;
+									}else if($(".user-type option:selected").val() == "operator"){
+										window.location.href = "operatorIndex.jsp?account="+data.account;
+									}
+								});
+							}else{
+								$('.bg-model .warn p').html("登录失败，账号或密码有误");
+								$('.bg-model .warn .btn-confirm').click(function(){
+									window.location.href = "login.jsp";
+								});
+							}
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown){
+				            alert(XMLHttpRequest.readyState);
+				            alert(XMLHttpRequest.status);
+				            alert(textStatus);
 						}
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown){
-			            alert(XMLHttpRequest.readyState);
-			            alert(XMLHttpRequest.status);
-			            alert(textStatus);
-					}
-				});
+					});
+				}else{
+					$('.bg-model').show();
+					$('.bg-model .warn p').html("账号或密码不能为空");
+					$('.bg-model .warn .btn-confirm').click(function(){
+						window.location.href = "login.jsp";
+					});
+				}
 			});
 		});
 	</script>
@@ -137,15 +188,30 @@
 	<div class="login">
 	    <form class="login-form">
 	        <h3>登陆</h3>
+	        <div class="type-box">
+	            <select class="user-type">
+	                <option value="consumer">普通用户</option>
+	                <option value="shop">店铺商家</option>
+	                <option value="operator">运营商</option>
+	            </select>
+        	</div>
 	        <div class="name-box">
 	            <label for="name">账号</label><input type="text" placeholder="请输入账号" id="name" name="userName">
 	        </div>
 	        <div class="password-box">
 	            <label for="pw">密码</label><input type="password" placeholder="请输入密码" id="pw" name="passWord">
 	        </div>
+	        <div class="field-box">
+	            <label for="autologin"><input type="checkbox" value="autologin" id="autologin">7天内自动登录</label>
+	            <a href="#" class="forgot-pw">忘记密码?</a>
+	        </div>
 	        <div class="login-btn">
 	            <input type="button" value="登陆" id="login_Btn">
-	            <input type="button" value="注册" id="register_Btn">
+	        </div>
+	        <div class="register-box">
+	            <div class="go-register">
+	                <span>还没有账号?</span><a href="register.jsp">去注册</a>
+	            </div>
 	        </div>
 	    </form>
 	</div>

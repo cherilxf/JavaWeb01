@@ -1,0 +1,47 @@
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    /* 清除点击默认的高亮效果 */
+    -webkit-tap-highlight-color: transparent;
+    /* 以border开始计算盒子获得宽度 */
+    -webkit-box-sizing: border-box;
+}
+
+body{
+    font-size: 14px;
+    font-family: "Microsoft YaHei",sans-serif;  /* 第二个是手机默认的一个字体 */
+    line-height: 1;
+    color: #333;
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+ul{
+    list-style: none;
+}
+
+input, textarea{
+    border: none;
+    resize: none;
+    /* 清除选中效果 */
+    outline: none;
+    /* 清除浏览器m默认样式 */
+    -webkit-appearance: none;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after{
+    content: ' ';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}

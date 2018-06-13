@@ -1,0 +1,253 @@
+body{
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    width: 1080px;
+}
+
+ul{
+    list-style: none;
+}
+
+/* 头部 */
+#header{
+    width: 100%;
+    height: 100%;
+    background-color: #5bc0de;
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .5),rgba(0, 0, 0, 0));
+}
+
+.content .container{
+    position: relative;
+}
+
+#header .header-content{
+    width: 1280px;
+    height: 240px;
+    margin: 0 auto;
+}
+
+/*轮播通栏*/
+#home_slide > .carousel-inner > .item{
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 240px;
+}
+
+#nav_menu{
+    padding: 0;
+}
+
+#nav_menu .nav li{
+    width: 120px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 48px;
+    text-align: center;
+}
+#nav_menu .nav li.header-nav-active{
+    background-color: #bce8f1;
+}
+
+#exit,
+#logout{
+    display: block;
+    width: 80px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    float: right;
+}
+
+.line{
+    width: 100%;
+    height: 4px;
+    background-color: #e0e0e0;
+}
+
+.order-box-left{
+    float: left;
+    width: 300px;
+    height: 680px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.order-box-left ul li{
+    width: 300px;
+    height: 68px;
+}
+
+.orderInfo{
+    width: 100%;
+    height: 68px;
+    position: relative;
+    border-bottom: 2px solid #e5e5e5;
+    cursor: pointer;
+}
+
+.orderInfo p{
+    margin: 0;
+}
+
+.orderInfo i{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    color: #2aabd2;
+    font-style: normal;
+}
+
+.orderInfo-left{
+    float: left;
+    margin-top: 4px;
+}
+
+.orderInfo-left img{
+    width: 60px;
+    height: 60px;
+}
+
+.orderInfo-right{
+    float: left;
+    padding-left: 10px;
+}
+.orderInfo-right .shop-name{
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.orderInfo-right .order-time,
+.orderInfo-right .order-sumPrice{
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.order-box-right{
+    float: left;
+    width: 320px;
+    height: 480px;
+    margin: 40px 0 0 200px;
+    background: #eee;
+    display: none;
+}
+
+.order-box-right .order-title{
+    width: 100%;
+    height: 112px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.order-box-right h4{
+    height: 48px;
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.order-box-right p{
+    line-height: 24px;
+    margin: 0;
+}
+.order-title span{
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    background: #2aabd2;
+}
+
+.order-foodInfo{
+    padding: 0 10px;
+}
+.order-foodInfo .order-shopName{
+    width: 100%;
+    font-size: 16px;
+}
+
+.foodIndo-box{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.foodIndo-box .foodInfo-box-left{
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+.foodIndo-box .foodInfo-box-left img{
+    width: 68px;
+    height: 68px;
+    margin-top: 6px;
+}
+
+.foodIndo-box .foodInfo-box-right{
+    float: left;
+}
+.foodInfo-box-right p:nth-child(1){
+    margin-top: 20px;
+}
+
+.order-foodInfo .sum-box{
+    width: 100%;
+    height: 24px;
+    font-size: 14px;
+    margin: 8px 0;
+    padding: 0 4px;
+}
+.order-foodInfo .sum-box .sumPrice{
+    float: left;
+    color: #f15353;
+}
+.order-foodInfo .sum-box  .pay{
+    float: right;
+    color: #f15353;
+}
+
+.address{
+    width: 100%;
+    height: 64px;
+    border-top: 4px solid #ccc;
+}
+
+.title-left{
+    float: left;
+    width: 60px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 14px;
+}
+.content-right{
+    float: left;
+    margin-left: 8px;
+}
+
+.psService,
+.orderNum,
+.orderTime,
+.payStyle{
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+}
+.psService span,
+.orderNum span,
+.orderTime span,
+.payStyle span{
+    display: inline-block;
+    line-height: 32px;
+}

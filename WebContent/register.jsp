@@ -16,10 +16,10 @@
             background-size: cover;
         }
         .register{
-            width: 240px;
-            height: 200px;
+            width: 280px;
+            height: 340px;
             margin: 100px 200px;
-            padding: 10px 20px;
+            padding: 10px 30px;
             border: 1px solid #e0e0e0;
             background-color: #F6F5F0;
             position: relative;
@@ -33,9 +33,22 @@
             text-align: center;
         }
 
-        .name-box, .password-box{
+        .name-box,
+        .type-box,
+        .password-box1,
+        .password-box2{
+            width: 100%;
+            height: 100%;
+            line-height: 28px;
             text-align: center;
-            margin-top: 6px;
+            margin: 6px 0;
+        }
+         .type-box{
+            margin-bottom: 12px;
+        }
+        .register .type-box .user-type{
+            width: 120px;
+            height: 24px;
         }
 
         .hidden-msg{
@@ -43,30 +56,42 @@
         }
         .show-msg{
             display: block;
-            width: 160px;
+            width: 100%;
             height: 20px;
-            margin: 2px 0 0 58px;
+            text-align: center;
             background: #ff0000;
         }
 
         .register .name-box input,
-        .register .password-box input{
-            width: 160px;
-            height: 18px;
-            margin-left: 6px;
+        .register .password-box1 input,
+        .register .password-box2 input{
+            float: right;
+            width: 188px;
+            height: 24px;
         }
 
+		 .register-xieyi{
+            text-align: center;
+            font-size: 14px;
+        }
+        .register-xieyi a{
+            text-decoration: none;
+            color: #f15353;
+        }
+		
         .register-btn{
             text-align: center;
             margin-top: 16px;
         }
-        .register-btn input{
-            width: 42px;
-            height: 20px;
-            margin: 0 5px;
+        #register_btn{
+            width: 198px;
+            height: 26px;
+            font-size: 16px;
+            line-height: 26px;
             box-shadow: 0 2px 5px rgba(0,28,88,.3);
-            cursor: pointer;
             color: #6d798c;
+            cursor: pointer;
+            disabled: true;
         }
         
         .bg-model{
@@ -101,6 +126,7 @@
         }
         .warn .btn-confirm{
         	font-size: 16px;
+        	padding: 0 10px;
         	cursor: pointer;
         }
     </style>
@@ -108,29 +134,33 @@
 	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var flag1 = false;
-			var flag2 = false;
+			var flagName = false;
+			var flagPw1 = false;
+			var flagPw2 = false;
+			
 			$('#name')
 			.focus(function (){
 				$('#msg_name').removeClass('show-msg').addClass('hidden-msg');
 			})
 			.blur(function(){
+				var userType = $(".user-type option:selected").val();
 				var userName = $(this).val();
-				if(userName.length > 0){
+				if(userName != ""){
 					$.ajax({
 						type: "post",
 						url: "registerCtrl",
 						data: {
+							"userType": userType,
 							"userName": userName,
 							"fn": "checkName"
 						},
 						dataType: "json",
 						success: function(data){
 							if(data.state){
-								$('#msg_name').removeClass('hidden-msg').addClass('show-msg').text("用户名已被占用！！！");
-								flag1 = false;
+								$('#msg_name').removeClass('hidden-msg').addClass('show-msg').text("账号名已被注册");
+								flagName = false;
 							}else{
-								flag1 = true;
+								flagName = true;
 							}
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -140,36 +170,56 @@
 						}
 					});
 				}else{
-					$('#msg_name').removeClass('hidden-msg').addClass('show-msg').text("用户名不能为空！！！");
+					$('#msg_name').removeClass('hidden-msg').addClass('show-msg').text("账号名不能为空");
 				};
 			});
 			
-			$('#pw').blur(function(){
-				var passWord = $('#pw').val();
+			$('#pw1')
+			.blur(function(){
+				var passWord = $('#pw1').val();
 				if(passWord == ""){
-					$('#msg_pw').removeClass('hidden-msg').addClass('show-msg').text("密码不能为空！！！");
+					$('#msg_pw1').removeClass('hidden-msg').addClass('show-msg').text("密码不能为空");
 				}else if(passWord.length < 6 || passWord.length > 16){
-					$('#msg_pw').removeClass('hidden-msg').addClass('show-msg').text("密码为6-16位！！！");
+					$('#msg_pw1').removeClass('hidden-msg').addClass('show-msg').text("密码为6-16位");
 				}else{
-					flag2 = true;
+					flagPw1 = true;
 				}
+			})
+			.focus(function(){
+				$('#msg_pw1').removeClass('show-msg').addClass('hidden-msg');
 			});
 			
-			$('#pw').focus(function(){
-				$('#msg_pw').removeClass('show-msg').addClass('hidden-msg');
+			$('#pw2')
+			.blur(function(){
+				var passWord = $('#pw2').val();
+				if(passWord == ""){
+					$('#msg_pw2').removeClass('hidden-msg').addClass('show-msg').text("密码不能为空");
+				}else if(passWord.length < 6 || passWord.length > 16){
+					$('#msg_pw2').removeClass('hidden-msg').addClass('show-msg').text("密码为6-16位");
+				}else if($('#pw1').val() != $('#pw2').val()){
+					$('#msg_pw2').removeClass('hidden-msg').addClass('show-msg').text("输入密码不一致");
+				}else{
+					flagPw2 = true;
+				}
+			})
+			.focus(function(){
+				$('#msg_pw2').removeClass('show-msg').addClass('hidden-msg');
 			});
 			
 			$('#register_btn').click(function(){
+				var userType = $(".user-type option:selected").val();
 				var userName = $('#name').val();
-				var passWord = $('#pw').val();
-				if(userName != "" && passWord != ""){
-					if(flag1 && flag2){
+				var passWord1 = $('#pw1').val();
+				var passWord2 = $('#pw2').val();
+				if(userName != "" && passWord1 != "" && passWord1 != ""){
+					if(flagName && flagPw1 && flagPw2){
 						$.ajax({
-							type: "get",
+							type: "post",
 							url: "registerCtrl",
 							data: {
-								"username": userName,
-								"password": passWord,
+								"userType": userType,
+								"userName": userName,
+								"passWord": passWord1,
 								"fn": "register"
 							},
 							dataType: "json",
@@ -202,7 +252,7 @@
 					}
 				}else{
 					$('.bg-model').show();
-					$('.bg-model .warn p').html("用户账号或密码不能为空");
+					$('.bg-model .warn p').html("账号名或密码不能为空");
 					$('.bg-model .warn .btn-confirm').html("确定").click(function(){
 						window.location.href = "register.jsp";
 					});
@@ -220,19 +270,32 @@
 	<div class="register">
 	    <form action="RegisterCtrl" method="get" class="register-form">
 	        <h3>注册</h3>
-	        <div></div>
+	        <div class="type-box">
+	            <select class="user-type">
+	                <option value="consumer">普通用户</option>
+	                <option value="shop">店铺商家</option>
+	                <option value="operator">运营商</option>
+	            </select>
+	        </div>
 	        <div class="name-box">
-	            <label for="name">账号</label><input id="name" name="username" type="text" placeholder="请输入账号">
+	            <label for="name">账号名</label><input type="text" placeholder="请输入账号名" id="name">
 	        </div>
 	        <div class="hidden-msg" id="msg_name"></div>
-	        <div class="password-box">
-	            <label for="pw">密码</label><input id="pw" name="password" type="password" placeholder="请输入密码">
+	        <div class="password-box1">
+	            <label for="pw1">密码</label><input type="password" placeholder="请输入密码" id="pw1">
+	        </div>
+	        <div class="hidden-msg" id="msg_pw1"></div>
+	        <div class="password-box2">
+	            <label for="pw2">确认密码</label><input type="password" placeholder="请输入密码" id="pw2">
+	        </div>
+	        <div class="hidden-msg" id="msg_pw2"></div>
+	        <div class="register-xieyi">
+	            <a href="#">《关于美食订餐协议》</a>
 	        </div>
 	        <div class="hidden-msg" id="msg_pw"></div>
 	
 	        <div class="register-btn">
-	            <input type="button" value="注册" id="register_btn">
-	            <input type="button" value="返回" id="back">
+	            <input type="button" value="同意并注册" id="register_btn">
 	        </div>
 	    </form>
 	</div>
