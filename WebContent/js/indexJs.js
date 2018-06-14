@@ -30,18 +30,16 @@ $(function () {
     });
 
     // 菜品信息页面点击数量的加减和修改
-    $('.product-box .product-num .num').blur(function () {
+    $(document).on("blur",".product-box .product-num .num",function(){
         var num = $(this).text();
         if(num > 99){
             $(this).text(99);
         }else if(num < 0){
             $(this).text(0);
         }
-    }).change(function() {
-
     });
 
-    $('.product-box .product-num .reduce').on('click',function () {
+    $(document).on("click",".product-box .product-num .reduce",function(){
         var num = $(this).next().val();
         if(num > 0){
             num--;
@@ -51,7 +49,7 @@ $(function () {
         $(this).next().val(num);
     });
 
-    $('.product-box .product-num .add').on('click',function () {
+    $(document).on("click",".product-box .product-num .add",function(){
         var num = $(this).prev().val();
         if(num < 99){
             num++;
@@ -62,22 +60,31 @@ $(function () {
     });
 
     // 菜品页面点击“加入购物车”
-    $('.product-box .addCart').click(function(){
+    $(document).on("click",".product-box .addCart",function(){
         var foodName = $(this).siblings('.foodTitle').text();
         var foodNum = $(this).siblings('.product-num').children('.num').val();
         var foodPrice = $(this).siblings('.price-box').children('.price').text();
 
+        var sumPrice = foodPrice * foodNum;
+        
         var str = '<div class="cartfood-info"><ul><li class="food-name"><p>';
         str += foodName;
         str += '</p></li><li class="food-num"><span class="reduce">-</span><input class="num" type="text" value="';
         str += foodNum;
-        str += '"/><span class="add">+</span></li><li class="food-price">&yen;<span class="price">';
+        str += '"/><span class="add">+</span></li><li class="foodUnitPrice" style="display:none"><span style="display:none">';
         str += foodPrice;
+        str += '</span></li><li class="food-price">&yen;<span class="price">';
+        str += sumPrice;
         str += '</span></li><li class="food-delete"><span class="food-delete-top"></span><span class="food-delete-bot"></span></li></ul></div>';
 
         $('#cartfood_info_box').append(str);
+        $('#cartfood_info_box').trigger('create');
+        
         var sumAmount = $('.goPay-box .amount span').text() - (-foodNum);
         $('.goPay-box .pay-info .amount span').text(sumAmount);
+        
+        var paySumPrice = $('.pay-sumPrice span:eq(0)').text();
+        $('.goPay-box .pay-sumPrice span:eq(0)').text(paySumPrice - (-sumPrice));
     });
 
     // 点击商家店铺时进入商家页面
@@ -96,28 +103,47 @@ $(function () {
             .removeClass('active');
     });
 
-    //结算区域的菜品数量加减和修改
+    // 结算区域的菜品数量加减和修改
     $(document).on("click",".cartfood-info .food-num .reduce",function(){
         var num = $(this).next().val();
+        var foodUnitPrice = $(this).parent().next().children('span').text();
+        
         if(num > 0){
             num--;
+            
             var sumAmount = $('.pay-info .amount span').text();
             $('.goPay-box .pay-info .amount span').text(sumAmount - 1);
+            
+            var paySumPrice = $('.pay-info .pay-sumPrice span').eq(0).text();
+            var newpaySumPrice = paySumPrice -  foodUnitPrice;
+            $('.pay-info .pay-sumPrice span:eq(0)').text(newpaySumPrice);
         }else{
             num = 0;
         }
         $(this).next().val(num);
+        // 小计
+        var sumPrice = foodUnitPrice * num;
+        $(this).parent().siblings('.food-price').children('.price').text(sumPrice);
     });
     $(document).on("click",".cartfood-info .food-num .add",function(){
         var num = $(this).prev().val();
+        var foodUnitPrice = $(this).parent().next().children('span').text();
         if(num < 99){
             num++;
+            
+            var sumAmount = $('.pay-info .amount span').text();
+            $('.goPay-box .pay-info .amount span').text(sumAmount - (-1));
+            
+            var paySumPrice = $('.pay-info .pay-sumPrice span').eq(0).text();
+            var newpaySumPrice = paySumPrice -  (-foodUnitPrice);
+            $('.pay-info .pay-sumPrice span:eq(0)').text(newpaySumPrice);
         }else{
             num = 99;
         }
         $(this).prev().val(num);
-        var sumAmount = $('.pay-info .amount span').text();
-        $('.goPay-box .pay-info .amount span').text(sumAmount - (-1));
+        // 小计
+        var sumPrice = foodUnitPrice * num;
+        $(this).parent().siblings('.food-price').children('.price').text(sumPrice);
     });
     $(document).on("change",".cartfood-info .food-num .num",function(){
         var sunAmount = 0;
@@ -125,8 +151,18 @@ $(function () {
             sunAmount = sunAmount - (-($(ele).val()));
         });
         $('.goPay-box .pay-info .amount span').text(sunAmount);
+        
+        var foodUnitPrice = $(this).parent().next().children('span').text();
+        var sumPrice = foodUnitPrice * num;
+        $(this).parent().siblings('.food-price').children('.price').text(sumPrice);
+   
+        var paySumPrice = $('.pay-info .pay-sumPrice span').eq(0).text();
+        var newpaySumPrice = paySumPrice -  (-foodUnitPrice);
+        $('.pay-info .pay-sumPrice span:eq(0)').text(newpaySumPrice);
     });
 
+    	
+    	
     // 结算区域的菜品删除
     $(document).on("click",".cartfood-info .food-delete .food-delete-bot",function(){
         var num = $(this).parent().siblings('.food-num').children('.num').val();
@@ -134,9 +170,11 @@ $(function () {
         $(this).parent().parent().parent().remove();
         $('.goPay-box .pay-info .amount span').text(sumAmount);
     });
+    
 
     // 点击结算后跳到支付页面
     $('.cart .pay-submit').click(function(){
+    	$('#order-food-info-box').html("");
         $('.cart .cartfood .cartfood-info').each(function(index,ele){
             var foodName = $('.cartfood-info:eq(' + index + ') .food-name').text();
             var foodNum = $('.cartfood-info:eq(' + index + ') .food-num .num').val();
@@ -149,21 +187,295 @@ $(function () {
                 str += foodName;
                 str += '</span> × <span>';
                 str += foodNum;
-                str += '</span></p><p class="order-price">&yen;';
-                str += 3.00;
-                str += '</p></div></div>';
-
-                $('.order-info').prepend(str);
+                str += '</span></p><p class="order-price">';
+                str += foodPrice;
+                str += ' &yen;</p></div></div>';
+                $('#order-food-info-box').append(str);
             }
-
+           
         });
-        var foodPrice = $('.goPay-box .pay-sumPrice span:eq(0)').text();
+        $('#order-food-info-box').trigger('create');
+        
+        var canheFee = $('.canhe-fee .canhe-price span').text();
+        var peisongFee = $('.peisong-fee .peisong-price span').text();
+        var youhuiFee = $('.youhui-fee .youhui-price span').text();
+        var hongbao = $('.hongbao .hongbao-price span').text();
+        
+        
+        var orderSumPrice = $('.goPay-box .pay-sumPrice span:eq(0)').text() - (-canheFee) - (-peisongFee) - youhuiFee - hongbao;
         var youhuiPrice = $('.goPay-box .pay-sumPrice span:eq(1)').text();
 
+        $('.order .pay-option .pay-option-sumPrice span').text(orderSumPrice);
+        $('.order .pay-option .pay-option-youhui span').text((youhuiFee - (-hongbao)));
+        
         $('.cart .order').show();
     });
 
     $('.order .cancel').click(function(){
         $('.order').hide();
     })
+    
+    
+    // 推荐商家
+    $('#tjsj-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "tjsj",
+				"info": "shop"
+			},
+			success: function(data){
+				for(var i in data){
+					var shopImg = data[i].shopImg;
+					var shopName = data[i].shopName;
+					var shopPingfen = data[i].pingfen;
+					var shopSale = data[i].sale;
+					var shopYouhui = data[i].youhui;
+					
+					var str = '<div class="shop-box"><a href="#"><img src="images/timg.jpg';
+//					str += images/timg.jpg;
+					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
+					str += shopName;
+					str += '</span><span class="grade"><div class="star"></div><span> ';
+					str += shopPingfen;
+					str += '</span></span><span class="sale">月售';
+					str += shopSale;
+					str += '单</span></div></div><div class="discount"><span>';
+					str += shopYouhui;
+					str += '</span></div></div>';
+					
+					$('#tjsj').append(str);
+					$('#tjsj').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+    
+    
+    // 今日菜品推介
+    $('#jrcptj-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "jrcptj",
+				"info": "food"
+			},
+			success: function(data){
+				for(var i in data){
+					var foodImg = data[i].foodImg;
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					
+					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					str += foodName;
+					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
+					str += foodUnitPrice;
+					str += '</span></p><a href="#" class="addCart">加入购物车</a></div>';
+					$('#jrcptj').append(str);
+					$('#jrcptj').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+    
+    // 大牌店铺
+    $('#dpdp-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "dpdp",
+				"info": "shop"
+			},
+			success: function(data){
+				for(var i in data){
+					var shopImg = data[i].shopImg;
+					var shopName = data[i].shopName;
+					var shopPingfen = data[i].pingfen;
+					var shopSale = data[i].sale;
+					var shopYouhui = data[i].youhui;
+					
+					var str = '<div class="shop-box"><a href="#"><img src="images/timg.jpg';
+//					str += images/timg.jpg;
+					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
+					str += shopName;
+					str += '</span><span class="grade"><div class="star"></div><span> ';
+					str += shopPingfen;
+					str += '</span></span><span class="sale">月售';
+					str += shopSale;
+					str += '单</span></div></div><div class="discount"><span>';
+					str += shopYouhui;
+					str += '</span></div></div>';
+					
+					$('#dpdp').append(str);
+					$('#dpdp').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+
+    // 校园优选
+    $('#xyyx-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "xyyx",
+				"info": "shop"
+			},
+			success: function(data){
+				for(var i in data){
+					var shopImg = data[i].shopImg;
+					var shopName = data[i].shopName;
+					var shopPingfen = data[i].pingfen;
+					var shopSale = data[i].sale;
+					var shopYouhui = data[i].youhui;
+					
+					var str = '<div class="shop-box"><a href="#"><img src="images/timg.jpg';
+//					str += images/timg.jpg;
+					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
+					str += shopName;
+					str += '</span><span class="grade"><div class="star"></div><span> ';
+					str += shopPingfen;
+					str += '</span></span><span class="sale">月售';
+					str += shopSale;
+					str += '单</span></div></div><div class="discount"><span>';
+					str += shopYouhui;
+					str += '</span></div></div>';
+					
+					$('#xyyx').append(str);
+					$('#xyyx').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+
+    // 限时热卖
+    $('#xsrm-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "xsrm",
+				"info": "food"
+			},
+			success: function(data){
+				for(var i in data){
+					var foodImg = data[i].foodImg;
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					
+					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					str += foodName;
+					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
+					str += foodUnitPrice;
+					str += '</span></p><a href="#" class="addCart">加入购物车</a></div>';
+					$('#xsrm').append(str);
+					$('#xsrm').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+
+    // 美时美刻
+    $('#msmk-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "msmk",
+				"info": "food"
+			},
+			success: function(data){
+				for(var i in data){
+					var foodImg = data[i].foodImg;
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					
+					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					str += foodName;
+					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
+					str += foodUnitPrice;
+					str += '</span></p><a href="#" class="addCart">加入购物车</a></div>';
+					$('#msmk').append(str);
+					$('#msmk').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+
+    // 炸鸡汉堡
+    $('#zjhb-btn').click(function(){
+    	$.ajax({
+			type: "get",
+			url: "foodCtrl",
+			dataType: "json",
+			data: {
+				"sort": "zjhb",
+				"info": "food"
+			},
+			success: function(data){
+				for(var i in data){
+					var foodImg = data[i].foodImg;
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					
+					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					str += foodName;
+					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
+					str += foodUnitPrice;
+					str += '</span></p><a href="#" class="addCart">加入购物车</a></div>';
+					$('#zjhb').append(str);
+					$('#zjhb').trigger('create');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+	            alert(XMLHttpRequest.readyState);
+	            alert(XMLHttpRequest.status);
+	            alert(textStatus);
+			}
+    	});
+    });
+
 });
+
+
+

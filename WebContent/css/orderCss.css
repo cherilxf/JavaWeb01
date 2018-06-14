@@ -108,6 +108,7 @@ ul{
 .orderInfo-left{
     float: left;
     margin-top: 4px;
+    margin-left: 4px;
 }
 
 .orderInfo-left img{
@@ -179,23 +180,23 @@ ul{
     font-size: 16px;
 }
 
-.foodIndo-box{
+.foodInfo-box{
     width: 100%;
     height: 80px;
     border-bottom: 1px solid #e5e5e5;
 }
-.foodIndo-box .foodInfo-box-left{
+.foodInfo-box .foodInfo-box-left{
     width: 80px;
     height: 80px;
     float: left;
 }
-.foodIndo-box .foodInfo-box-left img{
+.foodInfo-box .foodInfo-box-left img{
     width: 68px;
     height: 68px;
     margin-top: 6px;
 }
 
-.foodIndo-box .foodInfo-box-right{
+.foodInfo-box .foodInfo-box-right{
     float: left;
 }
 .foodInfo-box-right p:nth-child(1){

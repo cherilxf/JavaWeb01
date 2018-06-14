@@ -4,6 +4,5 @@
 $(function(){
     $('.order-box-left ul li').click(function(){
         $('.order-box-right').show();
-        console.log(111);
     });
 });

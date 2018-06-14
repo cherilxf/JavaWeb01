@@ -52,11 +52,11 @@
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
                         <li><a href="#">美团</a></li>
-                        <li class="header-nav-active"><a href="#">首页</a></li>
-                        <li><a href="orderInfo.html">我的订单</a></li>
+                        <li class="header-nav-active"><a href="javascript:;">首页</a></li>
+                        <li><a href="myOrder.jsp">我的订单</a></li>
                         <li><a href="#">发现美食</a></li>
                         <li><a href="#">优惠专区</a></li>
-                        <li><a href="personCenter.html">个人中心</a></li>
+                        <li><a href="personCenter.jsp">个人中心</a></li>
                     </ul>
                     <a href="#" id="logout">注销</a>
                     <a href="#" id="exit">退出账号</a>
@@ -75,26 +75,26 @@
                 </div>
                 <div class="wrapper">
                     <ul>
-                        <li class="active">
-                            <a href="#tjsj">推荐商家</a>
+                        <li class="active" id="tjsj-btn">
+                            <a href="#">推荐商家</a>
                         </li>
-                        <li>
-                            <a href="#jrcptj">今日菜品推介</a>
+                        <li id="jrcptj-btn">
+                            <a href="#">今日菜品推介</a>
                         </li>
-                        <li>
-                            <a href="#dpdp">大牌店铺</a>
+                        <li id="dpdp-btn">
+                            <a href="#">大牌店铺</a>
                         </li>
-                        <li>
-                            <a href="#czdrc">超值多人餐</a>
+                        <li id="xyyx-btn">
+                            <a href="#">校园优选</a>
                         </li>
-                        <li>
-                            <a href="#xsrm">限时热卖</a>
+                        <li id="xsrm-btn">
+                            <a href="#">限时热卖</a>
                         </li>
-                        <li>
-                            <a href="#msmk">美食美刻</a>
+                        <li id="msmk-btn">
+                            <a href="#">美食美刻</a>
                         </li>
-                        <li>
-                            <a href="#zjhb">炸鸡汉堡</a>
+                        <li id="zjhb-btn">
+                            <a href="#">炸鸡汉堡</a>
                         </li>
                     </ul>
                 </div>
@@ -102,102 +102,7 @@
             <div class="product-info">
                 <div class="nav-item-title">1111</div>
                 <div id="tjsj" class="main selected">
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
+                	<div class="shop-box">
                         <a href="#"><img src="images/timg.jpg" alt=""></a>
                         <div class="shop-info">
                             <div>
@@ -218,190 +123,21 @@
                     </div>
                 </div>
                 <div id="jrcptj" class="main food-main">
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
-                    <div class="product-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <span class="foodTitle">满汉全席</span>
-                        <div class="product-num">
-                            <input type="button" class="reduce" value="-">
-                            <input type="tel" class="num" value="0"/>
-                            <input type="button" class="add" value="+">
-                        </div>
-                        <p class="price-box">&yen;<span class="price">100</span></p>
-                        <a href="#" class="addCart">加入购物车</a>
-                    </div>
+                	<div class="product-box">
+                       <a href="#"><img src="images/timg.jpg" alt=""></a>
+                       <span class="foodTitle">满汉全席</span>
+                       <div class="product-num">
+                           <input type="button" class="reduce" value="-">
+                           <input type="tel" class="num" value="0"/>
+                           <input type="button" class="add" value="+">
+                       </div>
+                       <p class="price-box">&yen;<span class="price">100</span></p>
+                       <a href="#" class="addCart">加入购物车</a>
+                   </div>
                 </div>
                 <div id="dpdp" class="main">
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
                 </div>
-                <div id="czdrc" class="main food-main">
+                <div id="xyyx" class="main">
                 </div>
                 <div id="xsrm" class="main food-main">
                 </div>
@@ -652,45 +388,8 @@
                                     <input class="num" type="text" value="0"/>
                                     <span class="add" >+</span>
                                 </li>
-                                <li class="food-price">
-                                    &yen;<span class="price">10</span>
-                                </li>
-                                <li class="food-delete">
-                                    <!-- 删除商品 -->
-                                    <span class="food-delete-top"></span>
-                                    <span class="food-delete-bot"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cartfood-info">
-                            <ul>
-                                <li class="food-name">
-                                    <p>北京烤鸭</p>
-                                </li>
-                                <li class="food-num">
-                                    <span class="reduce" >-</span>
-                                    <input class="num" type="text" value="0"/>
-                                    <span class="add" >+</span>
-                                </li>
-                                <li class="food-price">
-                                    &yen;<span class="price">10</span>
-                                </li>
-                                <li class="food-delete">
-                                    <!-- 删除商品 -->
-                                    <span class="food-delete-top"></span>
-                                    <span class="food-delete-bot"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cartfood-info">
-                            <ul>
-                                <li class="food-name">
-                                    <p>北京烤鸭</p>
-                                </li>
-                                <li class="food-num">
-                                    <span class="reduce" >-</span>
-                                    <input class="num" type="text" value="0"/>
-                                    <span class="add" >+</span>
+                                <li class="foodUnitPrice" style="display:none">
+                                	<span style="display:none">100</span>
                                 </li>
                                 <li class="food-price">
                                     &yen;<span class="price">10</span>
@@ -738,25 +437,9 @@
                             <p>支付方式</p>
                             <span>在线支付</span>
                         </div>
-                        <div class="order-info">
-                            <!--<p class="order-shop-name">麦当劳<span>(江南西店)</span></p>-->
-                            <div class="order-food-info">
-                                <div class="order-food-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="order-food-right">
-                                    <p><span>全家桶套餐</span> × <span>1</span></p>
-                                    <p class="order-price">&yen;3.00</p>
-                                </div>
-                            </div>
-                            <div class="order-food-info">
-                                <div class="order-food-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="order-food-right">
-                                    <p><span>全家桶套餐</span> × <span>1</span></p>
-                                    <p class="order-price">&yen;3.00</p>
-                                </div>
+                        <div class="order-info-box">
+                            <p class="order-shop-name"><span>麦当劳(江南西店)</span></p>
+                            <div id="order-food-info-box">
                             </div>
 
                             <div class="canhe-fee">
@@ -765,7 +448,7 @@
                                 </div>
                                 <div class="canhe-fee-right">
                                     <p>餐盒</p>
-                                    <p class="canhe-price">&yen;3.00</p>
+                                    <p class="canhe-price"><span>3</span>&yen;</p>
                                 </div>
                             </div>
                             <div class="peisong-fee">
@@ -774,7 +457,7 @@
                                 </div>
                                 <div class="peisong-fee-right">
                                     <p>配送费</p>
-                                    <p class="peisong-price">&yen;3.00</p>
+                                    <p class="peisong-price"><span>3</span> &yen;</p>
                                 </div>
                             </div>
                             <div class="youhui-fee">
@@ -783,7 +466,7 @@
                                 </div>
                                 <div class="youhui-fee-right">
                                     <p>在线支付立减优惠</p>
-                                    <p class="youhui-price">&yen;3.00</p>
+                                    <p class="youhui-price"><span>0</span> &yen;</p>
                                 </div>
                             </div>
                             <div class="hongbao">
@@ -792,17 +475,17 @@
                                 </div>
                                 <div class="hongbao-right">
                                     <p>(含店铺专享红包)</p>
-                                    <p class="hongbao-price">&yen;3.00</p>
+                                    <p class="hongbao-price"><span>3</span> &yen;</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pay-option">
                             <div class="pay-option-info">
-                                <p class="pay-option-sumPrice">总额 <span>&yen;100.00</span></p>
-                                <p class="pay-option-youhui">已优惠 <span>&yen;30.00</span></p>
+                                <p class="pay-option-sumPrice">总额  <span></span> &yen;</p>
+                                <p class="pay-option-youhui">已优惠  <span></span> &yen;</p>
                             </div>
                             <div class="pay-option-submit">
-                                <a href="#">去支付</a>
+                                <a href="#">立即支付</a>
                             </div>
                         </div>
                     </div>

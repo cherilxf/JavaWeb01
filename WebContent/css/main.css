@@ -78,7 +78,7 @@ ul{
 .navBar-left p,
 .cartfood p
 {
-    width: 100%;
+    width: 240px;
     height: 40px;
     line-height: 40px;
     font-size: 20px;
@@ -260,10 +260,14 @@ ul{
 
 .product-info .product-box .foodTitle{
     float: left;
+    width: 72px;
     height: 20px;
     line-height: 20px;
     margin: 4px;
     font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .product-info .product-box .product-num{
     float: right;
@@ -519,12 +523,14 @@ ul{
     margin-top: 10px;
 }
 
+
 .cartfood .cartfood-title ul li:nth-child(1){
     width: 74px;
 }
 .cartfood .cartfood-title ul li:nth-child(2){
     width: 64px;
 }
+
 .cartfood .cartfood-title ul li:nth-child(3){
     width: 50px;
 }
@@ -559,14 +565,17 @@ ul{
 
 .cartfood .cartfood-info .food-name p{
     width: 74px;
-    height: 50px;
-    line-height: 50px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     font-size: 12px;
     border-bottom: 0;
     padding: 0 2px;
-    margin: 5px 0;
+    margin: 14px 0;
     background-color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .cartfood-info .food-num{
@@ -607,11 +616,15 @@ ul{
     border-radius: 0;
 }
 
+
 .cartfood-info .food-price{
     width: 50px;
     height: 60px;
     line-height: 60px;
     text-align: center;
+}
+.cartfood-info .foodUnitPrice{
+	display: none;
 }
 .cartfood-info .food-price .price{
     font-size: 10px;
@@ -796,7 +809,7 @@ ul{
     cursor: pointer;
 }
 
-.order-info{
+.order-info-box{
     width: 304px;
     height: 234px;
     margin-left: 8px;
@@ -804,7 +817,7 @@ ul{
     overflow-y: auto;
 }
 
-.order-info .order-shop-name{
+.order-info-box .order-shop-name{
     width: 100%;
     height: 32px;
     line-height: 32px;
@@ -814,11 +827,11 @@ ul{
     border-bottom: 1px solid #e5e5e5;
 }
 
-.order-info .order-food-info,
-.order-info .canhe-fee,
-.order-info .peisong-fee,
-.order-info .youhui-fee,
-.order-info .hongbao
+.order-info-box .order-food-info,
+.order-info-box .canhe-fee,
+.order-info-box .peisong-fee,
+.order-info-box .youhui-fee,
+.order-info-box .hongbao
 {
     width: 304px;
     height: 32px;
@@ -826,7 +839,7 @@ ul{
     border-bottom: 1px solid #e0e0e0;
 }
 
-.order-info .order-food-info .order-food-left{
+.order-info-box .order-food-info .order-food-left{
     float: left;
     width: 32px;
     line-height: 24px;
@@ -871,29 +884,29 @@ ul{
 }
 
 
-.order-info .order-food-right,
-.order-info .canhe-fee-right,
-.order-info .peisong-fee-right,
-.order-info .youhui-fee-right,
-.order-info .hongbao-right{
+.order-info-box .order-food-right,
+.order-info-box .canhe-fee-right,
+.order-info-box .peisong-fee-right,
+.order-info-box .youhui-fee-right,
+.order-info-box .hongbao-right{
     float: left;
     width: 260px;
     margin-left: 4px;
 }
-.order-info .order-food-right p,
-.order-info .canhe-fee-right p,
-.order-info .peisong-fee-right p,
-.order-info .youhui-fee-right p,
-.order-info .hongbao-right p{
+.order-info-box .order-food-right p,
+.order-info-box .canhe-fee-right p,
+.order-info-box .peisong-fee-right p,
+.order-info-box .youhui-fee-right p,
+.order-info-box .hongbao-right p{
     float: left;
     font-size: 14px;
     line-height: 28px;
 }
-.order-info .order-food-right p:nth-child(2),
-.order-info .canhe-fee-right p:nth-child(2),
-.order-info .peisong-fee-right p:nth-child(2),
-.order-info .youhui-fee-right p:nth-child(2),
-.order-info .hongbao-right p:nth-child(2){
+.order-info-box .order-food-right p:nth-child(2),
+.order-info-box .canhe-fee-right p:nth-child(2),
+.order-info-box .peisong-fee-right p:nth-child(2),
+.order-info-box .youhui-fee-right p:nth-child(2),
+.order-info-box .hongbao-right p:nth-child(2){
     padding-right: 16px;
     float: right;
 }

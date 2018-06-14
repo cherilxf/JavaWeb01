@@ -132,7 +132,7 @@
         	cursor: pointer;
         }
     </style>
-    <script src="jquery-1.11.1.min.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
 	<script>
 		$(function(){
 			$('#login_Btn').click(function(){

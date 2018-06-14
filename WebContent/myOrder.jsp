@@ -7,10 +7,11 @@
 	<title>我的订单</title>
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/orderCss.css">
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/indexJs.js"></script>
+    <script src="js/orderJs.js"></script>
 </head>
 <body>
 	<!-- 头部区域 -->
@@ -52,11 +53,11 @@
 	            <div class="collapse navbar-collapse" id="nav_menu">
 	                <ul class="nav navbar-nav">
 	                    <li><a href="#">美团</a></li>
-	                    <li><a href="index.html">首页</a></li>
-	                    <li class="header-nav-active"><a href="#">我的订单</a></li>
+	                    <li><a href="index.jsp">首页</a></li>
+	                    <li class="header-nav-active"><a href="javascript:;">我的订单</a></li>
 	                    <li><a href="#">发现美食</a></li>
 	                    <li><a href="#">优惠专区</a></li>
-	                    <li><a href="#">个人中心</a></li>
+	                    <li><a href="personCenter.jsp">个人中心</a></li>
 	                </ul>
 	                <a href="#" id="logout">注销</a>
 	                <a href="#" id="exit">退出账号</a>
@@ -112,7 +113,7 @@
 	                        </div>
 	                        <div class="order-foodInfo">
 	                            <p class="order-shopName">麦当劳</p>
-	                            <div class="foodIndo-box">
+	                            <div class="foodInfo-box">
 	                                <div class="foodInfo-box-left">
 	                                    <img src="images/timg.jpg" alt="">
 	                                </div>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import javaWebDesign.model.user;
 import javaWebDesign.service.deleteService;
-import javaWebDesign.service.userServicePage;
+import javaWebDesign.service.foodService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -36,10 +36,10 @@ public class deleteCtrl extends HttpServlet {
 		
 		String fn = request.getParameter("fn");
 		if(fn.equals("loadInfo")) {
-			userServicePage ds = new userServicePage();
+			foodService ds = new foodService();
 			ArrayList<user> list = new ArrayList<user>();
 			try {
-				list = ds.getAllUser();
+//				list = ds.getAllUser();
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

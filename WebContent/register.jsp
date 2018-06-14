@@ -131,7 +131,7 @@
         }
     </style>
     
-	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var flagName = false;
