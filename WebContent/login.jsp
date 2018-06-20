@@ -12,16 +12,19 @@
         }
         body{
             font-family:"Microsoft YaHei","SimSun";
-            background: url("images/zhou-1.jpg") no-repeat;
+            background: url("images/time.jpg") no-repeat;
             background-size: cover;
         }
         .login{
+        	float: right;
             width: 280px;
             height: 260px;
-            margin: 100px 200px;
             padding: 10px 20px;
             border: 1px solid #e0e0e0;
-            background-color: #F6F5F0;
+            background-color: #fff;
+            position: fixed;
+    		bottom: 34%;
+    		right: 16%;
         }
         .login h3{
             font-size: 24px;
@@ -112,7 +115,7 @@
         	position: absolute;
         	top: 50%;
         	left: 50%;
-        	margin: -120px 0 0 -200px; 
+        	margin: -120px 0 0 -150px; 
         	border-radius: 4px;
         	text-align: center;
         	background-color: #fff;
@@ -185,6 +188,7 @@
 	</script>
 </head>
 <body>
+	<div id="container"></div>
 	<div class="login">
 	    <form class="login-form">
 	        <h3>登陆</h3>

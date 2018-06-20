@@ -53,11 +53,11 @@
 	            <div class="collapse navbar-collapse" id="nav_menu">
 	                <ul class="nav navbar-nav">
 	                    <li><a href="#">美团</a></li>
-	                    <li><a href="index.jsp">首页</a></li>
-	                    <li class="header-nav-active"><a href="javascript:;">我的订单</a></li>
-	                    <li><a href="#">发现美食</a></li>
-	                    <li><a href="#">优惠专区</a></li>
-	                    <li><a href="personCenter.jsp">个人中心</a></li>
+	                    <li><a href="#" onclick="index()">首页</a></li>
+	                    <li class="header-nav-active"><a href="#" onclick="myOrder()">我的订单</a></li>
+	                    <li><a href="#" onclick="findFood()">发现美食</a></li>
+	                    <li><a href="#" onclick="youHui()">优惠专区</a></li>
+	                    <li><a href="#" onclick="personCenter()">个人中心</a></li>
 	                </ul>
 	                <a href="#" id="logout">注销</a>
 	                <a href="#" id="exit">退出账号</a>
@@ -84,25 +84,6 @@
 	                    <div class="line"></div>
 	                    <div class="order-box-left">
 	                        <ul>
-	                            <li>
-	                                <div class="orderInfo">
-	                                    <div class="orderInfo-left">
-	                                        <img src="images/timg.jpg" alt="">
-	                                    </div>
-	                                    <div class="orderInfo-right">
-	                                        <p class="shop-name">
-	                                            华莱士
-	                                        </p>
-	                                        <i>已完成</i>
-	                                        <p class="order-time">
-	                                            下单时间：<span>2018-06-11 23:20</span>
-	                                        </p>
-	                                        <p class="order-sumPrice">
-	                                            总价：&yen;<span>20</span>
-	                                        </p>
-	                                    </div>
-	                                </div>
-	                            </li>
 	                        </ul>
 	                    </div>
 	                    <div class="order-box-right">
@@ -112,21 +93,12 @@
 	                            <span>再来一单</span>
 	                        </div>
 	                        <div class="order-foodInfo">
-	                            <p class="order-shopName">麦当劳</p>
-	                            <div class="foodInfo-box">
-	                                <div class="foodInfo-box-left">
-	                                    <img src="images/timg.jpg" alt="">
-	                                </div>
-	                                <div class="foodInfo-box-right">
-	                                    <p>
-	                                        <span class="foodName">至尊双层鸡腿堡 </span>×<span class="foodNum">2</span>
-	                                    </p>
-	                                    <p class="foodPrice">&yen;<span>18</span></p>
-	                                </div>
+	                            <p class="order-shopName"></p>
+	                            <div class="order-food-box">
 	                            </div>
 	                            <div class="sum-box">
-	                                <p class="sumPrice">总计&yen;<span>120</span> 优惠&yen;<span>20</span></p>
-	                                <p class="pay">实付 &yen;<span>100</span></p>
+	                                <p class="sumPrice">总计&yen;<span></span> 优惠&yen;<span></span></p>
+	                                <p class="pay">实付 &yen;<span class="pay-shifu"></span></p>
 	                            </div>
 	                        </div>
 	                        <div class="address">
@@ -135,8 +107,8 @@
 	                            </div>
 	                            <div class="content-right">
 	                                <p>
-	                                    <span>廖XX(先生) 135331XXXX5</span><br>
-	                                    <span>仲恺农业工程学院(8栋XXX)</span>
+	                                    <span></span><br>
+	                                    <span></span>
 	                                </p>
 	                            </div>
 	                        </div>
@@ -150,13 +122,13 @@
 	                                </p>
 	                            </div>
 	                        </div>
-	                        <div class="orderNum">
+	                        <div class="orderID-info">
 	                            <div class="title-left">
 	                                <span>订单号码</span>
 	                            </div>
 	                            <div class="content-right">
 	                                <p>
-	                                    <span>由商家提供配送服务</span>
+	                                    <span></span>
 	                                </p>
 	                            </div>
 	                        </div>
@@ -166,7 +138,7 @@
 	                            </div>
 	                            <div class="content-right">
 	                                <p>
-	                                    <span>2018-06-11 23:20:12</span>
+	                                    <span></span>
 	                                </p>
 	                            </div>
 	                        </div>
@@ -176,7 +148,7 @@
 	                            </div>
 	                            <div class="content-right">
 	                                <p>
-	                                    <span>在线支付</span>
+	                                    <span></span>
 	                                </p>
 	                            </div>
 	                        </div>

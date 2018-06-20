@@ -8,10 +8,11 @@
 	<title>个人中心</title>
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/personCenterCss.css">
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/indexJs.js"></script>
+    <script src="js/personCenterJs.js"></script>
 </head>
 <body>
 	<!-- 头部区域 -->
@@ -52,12 +53,12 @@
 	        <div class="container">
 	            <div class="collapse navbar-collapse" id="nav_menu">
 	                <ul class="nav navbar-nav">
-	                    <li><a href="#">美团</a></li>
-	                    <li><a href="index.html">首页</a></li>
-	                    <li><a href="orderInfo.html">我的订单</a></li>
-	                    <li><a href="#">发现美食</a></li>
-	                    <li><a href="#">优惠专区</a></li>
-	                    <li class="header-nav-active"><a href="#">个人中心</a></li>
+	                <li><a href="#">美团</a></li>
+	                    <li><a href="#" onclick="index()">首页</a></li>
+	                    <li><a href="#" onclick="myOrder()">我的订单</a></li>
+	                    <li><a href="#" onclick="findFood()">发现美食</a></li>
+	                    <li><a href="#" onclick="youHui()">优惠专区</a></li>
+	                    <li calss="header-nav-active"><a href="#" onclick="personCenter()">个人中心</a></li>
 	                </ul>
 	                <a href="#" id="logout">注销</a>
 	                <a href="#" id="exit">退出账号</a>
@@ -83,62 +84,87 @@
 	                    <form action="" method="post" class="person-form">
 	                        <br><h1 align="center">个人信息</h1><hr />
 	                        <table align="center">
+	                        	<tr>
+	                                <td>用户ID</td>
+	                                <td></td>
+	                            </tr>
 	                            <tr>
 	                                <td>姓名</td>
-	                                <td><input type="text"></td>
+	                                <td></td>
 	                            </tr>
 	                            <tr>
 	                                <td>昵称</td>
-	                                <td><input type="text"></td>
+	                                <td></td>
 	                            </tr>
 	                            <tr>
 	                                <td>年龄</td>
-	                                <td><input type="text"></td>
+	                                <td></td>
 	                            </tr>
 	                            <tr>
 	                                <td>手机号码</td>
-	                                <td>
-	                                    <input type="tel">
-	                                </td>
+	                                <td></td>
 	                            </tr>
 	                            <tr>
 	                                <td>微信</td>
-	                                <td>
-	                                    <input type="tel">
-	                                </td>
+	                                <td></td>
 	                            </tr>
 	                        </table>
 	                    </form>
 	                </div>
 	                <div role="tabpanel" class="tab-pane fade in" id="category_02">
-	                    <form action="" method="post" class="person-form">
+		                <div class="bg-model">
+	                    	<div class="warn">
+	                    		<p>是否提交信息？</p>
+	                    		<div class="bg-button">
+	                    			<button class="btn-confirm">确认</button>
+	                    			<button class="btn-cancel">取消</button>
+	                    			<button class="btn-back">返回</button>
+	                    		</div>
+	                    	</div>
+	                    </div>
+	                    <form action="" method="post" id="set_form" class="person-form">
 	                        <br><h1 align="center">个人信息</h1><hr />
 	                        <table align="center">
+	                        	<tr>
+	                                <td>用户ID</td>
+	                                <td id="set_form_ID">
+	                                </td>
+	                            </tr>
 	                            <tr>
 	                                <td>姓名</td>
-	                                <td><input type="text"></td>
+	                                <td>
+	                                	<input type="text" id="set_form_name">
+	                                </td>
 	                            </tr>
 	                            <tr>
 	                                <td>昵称</td>
-	                                <td><input type="text"></td>
+	                                <td>
+	                                	<input type="text" id="set_form_nichen">
+	                                </td>
 	                            </tr>
 	                            <tr>
 	                                <td>年龄</td>
-	                                <td><input type="text"></td>
+	                                <td>
+	                                	<input type="text" id="set_form_age">
+	                                </td>
 	                            </tr>
 	                            <tr>
 	                                <td>手机号码</td>
 	                                <td>
-	                                    <input type="tel">
+	                                    <input type="tel" id="set_form_tel">
 	                                </td>
 	                            </tr>
 	                            <tr>
 	                                <td>微信</td>
 	                                <td>
-	                                    <input type="tel">
+	                                    <input type="text" id="set_form_wechat">
 	                                </td>
 	                            </tr>
 	                        </table>
+	                        <div class="btn-box">
+                                <input type="button" value="提交" onclick="setInfo()">
+                                <input type="reset" value="重置">
+                            </div>
 	                    </form>
 	                </div>
 	                <div role="tabpanel" class="tab-pane fade in" id="category_03">

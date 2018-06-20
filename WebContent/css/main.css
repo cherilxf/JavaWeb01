@@ -141,10 +141,14 @@ ul{
     position: relative;    
 }
 
-.product-info .nav-item-title{
+.product-info .nav-shopName{
     width: 552px;
     height: 42px;
+    font-size: 24px;
     opacity: .8;
+    line-height: 42px;
+    text-align: center;
+    border-top: 2px solid #000;
     background-color: #2aabd2;
     position: absolute;
     top: 0;
@@ -155,7 +159,7 @@ ul{
 .product-info .main{
     float: left;
     width: 552px;
-    height: 408px;
+    height: 444px;
     padding: 0 46px;
     margin-top: 42px;
     box-shadow: inset 0px 0px 10px #3c3c3c;
@@ -502,6 +506,25 @@ ul{
     background-color: #ff2a2a;
 }
 
+.cart .cart-shopName{
+	width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ff2a2a;
+    padding: 0 10px;
+    margin: 0;
+    border-bottom: 2px solid #ccc;
+    background-color: #fff;
+}
+
+.cart .cartitle p,
+.cart .cart-shopName p{
+	margin: 0;
+}
+
 .cart .cartfood{
     width: 256px;
     height: 300px;
@@ -700,7 +723,8 @@ ul{
     font-size: 14px;
 }
 
-.order{
+.order,
+.order-state{
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.3);
@@ -726,7 +750,8 @@ ul{
     cursor: pointer;
 }
 
-.warn{
+.warn,
+.order-state-warn{
     width: 320px;
     height: 550px;
     position: absolute;
@@ -738,8 +763,28 @@ ul{
     background-color: #fff;
 }
 
+.order-state-warn{
+	width: 340px;
+    height: 280px;
+    top: 65%;
+}
+
 .warn p{
     margin: 0;
+}
+.order-state-warn p{
+	font-size: 32px;
+	text-align:center;
+	margin-top: 100px;
+	color: #ff2a2a;
+}
+
+.order-state-warn .order-state-btn{
+	width: 68px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	margin: 24px 0 0 136px;
 }
 
 .warn h4{

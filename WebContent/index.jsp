@@ -51,15 +51,14 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">美团</a></li>
-                        <li class="header-nav-active"><a href="javascript:;">首页</a></li>
-                        <li><a href="myOrder.jsp">我的订单</a></li>
-                        <li><a href="#">发现美食</a></li>
-                        <li><a href="#">优惠专区</a></li>
-                        <li><a href="personCenter.jsp">个人中心</a></li>
+                        <li><a href="#" onclick="index()">美团</a></li>
+                        <li class="header-nav-active"><a href="#" onclick="index()">首页</a></li>
+                        <li><a href="#" onclick="myOrder()">我的订单</a></li>
+                        <li><a href="#" onclick="findFood()">发现美食</a></li>
+                        <li><a href="#" onclick="youHui()">优惠专区</a></li>
+                        <li><a href="#" onclick="personCenter()">个人中心</a></li>
                     </ul>
-                    <a href="#" id="logout">注销</a>
-                    <a href="#" id="exit">退出账号</a>
+                    <a href="InvalidateServlet" id="exit">退出账号</a>
                 </div>
             </div>
         </nav>
@@ -100,40 +99,10 @@
                 </div>
             </nav>
             <div class="product-info">
-                <div class="nav-item-title">1111</div>
+                <div class="nav-shopName"></div>
                 <div id="tjsj" class="main selected">
-                	<div class="shop-box">
-                        <a href="#"><img src="images/timg.jpg" alt=""></a>
-                        <div class="shop-info">
-                            <div>
-                                <span class="shop-title">港堡汉堡（江南西店）</span>
-                                <span class="grade">
-                                    <div class="star"></div><span> 4.7</span>
-                                </span>
-                                <span class="sale">
-                                    月售4541单
-                                </span>
-                            </div>
-                        </div>
-                        <div class="discount">
-                            <span>
-                                优惠活动：满30减20，满45减26，满50减30，满80减50
-                            </span>
-                        </div>
-                    </div>
                 </div>
                 <div id="jrcptj" class="main food-main">
-                	<div class="product-box">
-                       <a href="#"><img src="images/timg.jpg" alt=""></a>
-                       <span class="foodTitle">满汉全席</span>
-                       <div class="product-num">
-                           <input type="button" class="reduce" value="-">
-                           <input type="tel" class="num" value="0"/>
-                           <input type="button" class="add" value="+">
-                       </div>
-                       <p class="price-box">&yen;<span class="price">100</span></p>
-                       <a href="#" class="addCart">加入购物车</a>
-                   </div>
                 </div>
                 <div id="dpdp" class="main">
                 </div>
@@ -158,72 +127,6 @@
                     <!-- 商店内进行订餐 -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="category_01">
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
-                            <div class="product-box">
-                                <a href="#"><img src="images/timg.jpg" alt=""></a>
-                                <span class="foodTitle">满汉全席</span>
-                                <div class="product-num">
-                                    <input type="button" class="reduce" value="-">
-                                    <input type="tel" class="num" value="0"/>
-                                    <input type="button" class="add" value="+">
-                                </div>
-                                <p class="price-box">&yen;<span class="price">100</span></p>
-                                <a href="#" class="addCart">加入购物车</a>
-                            </div>
                         </div>
                         <!-- 查看用户评价 -->
                         <div role="tabpanel" class="tab-pane fade in" id="category_02">
@@ -254,60 +157,6 @@
                                     <li>服务不错 15</li>
                                     <li>送货快 24</li>
                                 </ul>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
-                            </div>
-                            <div class="evaluation-content">
-                                <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
-                                </div>
-                                <div class="evaluation-content-right">
-                                    <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
-                                    <p>鸡翅很好吃，可乐也很好喝，食物看起来很新鲜，送餐小哥人很好，送餐又快，服务也不错，就是有点贵，大家放心点。</p>
-                                </div>
                             </div>
                             <div class="evaluation-content">
                                 <div class="evaluation-content-left">
@@ -368,6 +217,9 @@
                 <div class="cartitle">
                     <p>我的菜单栏</p>
                 </div>
+                <div class="cart-shopName">
+                	<p></p>
+                </div>
                 <div class="cartfood">
                     <div class="cartfood-title">
                         <ul>
@@ -378,43 +230,21 @@
                         </ul>
                     </div>
                     <div class="cartfood-info-box" id="cartfood_info_box">
-                        <div class="cartfood-info">
-                            <ul>
-                                <li class="food-name">
-                                    <p>北京烤鸭</p>
-                                </li>
-                                <li class="food-num">
-                                    <span class="reduce" >-</span>
-                                    <input class="num" type="text" value="0"/>
-                                    <span class="add" >+</span>
-                                </li>
-                                <li class="foodUnitPrice" style="display:none">
-                                	<span style="display:none">100</span>
-                                </li>
-                                <li class="food-price">
-                                    &yen;<span class="price">10</span>
-                                </li>
-                                <li class="food-delete">
-                                    <!-- 删除商品 -->
-                                    <span class="food-delete-top"></span>
-                                    <span class="food-delete-bot"></span>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 
                 <div class="goPay-box">
                     <div class="pay-info">
-                        <p class="amount">合计数量：<span>0</span>份</p>
-                        <p class="pay-sumPrice">总额：&yen;<span>0</span>  优惠：&yen;<span>0</span></p>
+                        <p class="amount">合计数量：<span></span>份</p>
+                        <p class="pay-sumPrice">总额：&yen;<span></span>  优惠：&yen;<span></span></p>
                     </div>
                     <div class="pay-submit">
                         <a href="#" class="goPay">去结算</a>
                     </div>
                 </div>
-
-                <div class="order">
+            </div>
+            
+            <div class="order">
                     <div class="warn">
                         <div class="cancel">×</div>
                         <h4 class="order-title">确认订单</h4>
@@ -422,10 +252,10 @@
                             <p>
                                 订单配送至
                             </p><br>
-                            <p>
+                            <p class="orderAddress">
                                 仲恺农业工程学院北区宿舍8XXX
                             </p><br>
-                            <p>
+                            <p class="orderTel">
                                 廖XX(先生) 135XXXX9005
                             </p>
                         </div>
@@ -438,7 +268,7 @@
                             <span>在线支付</span>
                         </div>
                         <div class="order-info-box">
-                            <p class="order-shop-name"><span>麦当劳(江南西店)</span></p>
+                            <p class="order-shop-name"><span></span></p>
                             <div id="order-food-info-box">
                             </div>
 
@@ -448,7 +278,7 @@
                                 </div>
                                 <div class="canhe-fee-right">
                                     <p>餐盒</p>
-                                    <p class="canhe-price"><span>3</span>&yen;</p>
+                                    <p class="canhe-price"><span>3</span> &yen;</p>
                                 </div>
                             </div>
                             <div class="peisong-fee">
@@ -485,12 +315,18 @@
                                 <p class="pay-option-youhui">已优惠  <span></span> &yen;</p>
                             </div>
                             <div class="pay-option-submit">
-                                <a href="#">立即支付</a>
+                                <a href="#" onclick="pay()">立即支付</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="order-state">
+	                <div class="order-state-warn">
+	                	<p></p>
+	                	<button class="order-state-btn">确定</button>
+	                </div>
+                </div>
 
             <div class="tip">
                 <p class="tip-title">友情提示</p>

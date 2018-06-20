@@ -71,6 +71,22 @@ public class foodCtrl extends HttpServlet {
 				jsonObject.put("foodUnitPrice", tmpUser.getFoodUnitPrice());
 				jsonArray.add(jsonObject);
 			}
+		}else if(info.equals("shopFood")) {
+			String shopName = request.getParameter("shopName");
+			ArrayList<food> list = new ArrayList<food>();
+			try {
+				list = fs.getShopFood(shopName);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			for(food tmpUser : list) {
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put("foodImg", tmpUser.getFoodImg());
+				jsonObject.put("foodName", tmpUser.getFoodName());
+				jsonObject.put("foodUnitPrice", tmpUser.getFoodUnitPrice());
+				jsonArray.add(jsonObject);
+			}
 		}
 		
 		PrintWriter out = response.getWriter();

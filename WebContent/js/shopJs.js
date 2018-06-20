@@ -2,97 +2,161 @@
  * Created by 廖幸锋 on 2018/6/7.
  */
 $(function(){
-    var address = $("#pro_city");
-    var province = $("#province");
-    var city = $("#city");
-    var area = $("#area");
-    var preProvince = "<option value=\"\">选择省（市）</option>";
-    var preCity = "<option value=\"\">选择市（区）</option>";
-    var preArea = "<option value=\"\">选择区（县）</option>";
-
-    //初始化
-    province.html(preProvince);
-    city.html(preCity);
-    area.html(preArea);
-
-    //文档加载完毕:即从province_city_select_Info.xml获取数据,成功之后采用
-    //func_suc_getXmlProvice进行 省的 解析
-    $.ajax({
-        type : "GET",
-        url : "province_city_select_Info.xml",
-        success : func_suc_getXmlProvice
-    });
-
-    //省 下拉选择发生变化触发的事件
-    province.change(function() {
-        //province.val()  : 返回是每个省对应的下标,序号从0开始
-        if (province.val() != "") {
-            city.html(preCity);
-
-            //根据下拉得到的省对于的下标序号,动态从从province_city_select_Info.xml获取数据,成功之后采用
-            //func_suc_getXmlProvice进行省对应的市的解析
-            $.ajax({
-                type : "GET",
-                url : "province_city_select_Info.xml",
-                success : func_suc_getXmlCity
-            });
-
-        }
-    });
-
-    //市 下拉选择发生变化触发的事件
-    city.change(function() {
-        area.html(preArea);
-        $.ajax({
-            type : "GET",
-            url : "province_city_select_Info.xml",
-
-            //根据下拉得到的省、市对于的下标序号,动态从从province_city_select_Info.xml获取数据,成功之后采用
-            //func_suc_getXmlArea进行省对应的市对于的区的解析
-            success : func_suc_getXmlArea
-        });
-    });
-
-    //区 下拉选择发生变化触发的事件
-    area.change(function() {
-        var value = province.find("option:selected").text()
-            + city.find("option:selected").text()
-            + area.find("option:selected").text();
-        address.text(value);
-        $("#txtProCity").val(value);
-    });
-
-    //解析获取xml格式文件中的prov标签,得到所有的省,并逐个进行遍历 放进下拉框中
-    function func_suc_getXmlProvice(xml) {
-        //jquery的查找功能
-        var sheng = $(xml).find("prov");
-
-        //jquery的遍历与查询匹配 eq功能,并将其放到下拉框中
-        sheng.each(function(i) {
-            province.append("<option value=" + i + ">"
-                + sheng.eq(i).attr("text") + "</option>");
-        });
-    }
-
-    function func_suc_getXmlCity(xml) {
-        var xml_sheng = $(xml).find("prov");
-        var pro_num = parseInt(province.val());
-        var xml_shi = xml_sheng.eq(pro_num).find("city");
-        xml_shi.each(function(j) {
-            city.append("<option  value=" + j + ">"
-                + xml_shi.eq(j).attr("text") + "</option>");
-        });
-    }
-
-    function func_suc_getXmlArea(xml) {
-        var xml_sheng = $(xml).find("prov");
-        var pro_num = parseInt(province.val());
-        var xml_shi = xml_sheng.eq(pro_num).find("city");
-        var city_num = parseInt(city.val());
-        var xml_xianqu = xml_shi.eq(city_num).find("county");
-        xml_xianqu.each(function(k) {
-            area.append("<option  value=" + k + ">"
-                + xml_xianqu.eq(k).attr("text") + "</option>");
-        });
-    }
+	checkInfo();
 });
+
+function checkInfo(){
+	var  account = getQueryString("account");
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		dataType: "json",
+		data: {
+			"fn": "shopCheck",
+			"shopID": account
+		},
+		success: function(data){
+			var shopID = data.shopID;
+			var shopName = data.shopName;
+			var shopAddress = data.shopAddress;
+			var peisongFee = data.peisongFee;
+			var canheFee = data.canheFee;
+			var pingfen = data.pingfen;
+			var sale = data.sale;
+			var youhui = data.youhui;
+			
+			$('#category_01 .shopInfo-form table tr:eq(0) td:eq(1)').text(shopName);
+			$('#category_01 .shopInfo-form table tr:eq(1) td:eq(1)').text(shopAddress);
+			$('#category_01 .shopInfo-form table tr:eq(2) td:eq(1)').text(peisongFee);
+			$('#category_01 .shopInfo-form table tr:eq(3) td:eq(1)').text(canheFee);
+			$('#category_01 .shopInfo-form table tr:eq(4) td:eq(1)').text(pingfen);
+			$('#category_01 .shopInfo-form table tr:eq(5) td:eq(1)').text(sale);
+			$('#category_01 .shopInfo-form table tr:eq(6) td:eq(1)').text(youhui);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
+	});
+}
+
+function getQueryString(name) {
+    var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+function indexInfo(){
+	var page = 1;
+	var shopName = $('.shopCheck-shopName').text();
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		data: {
+			"fn": "foodCheck",
+			"shopName": shopName,
+			"page": page
+		},
+		dataType: "json",
+		success: function(data){
+			for(var i in data){
+				if(i == 0){
+					var page = data[i].page;
+					var totalpages = data[i].totalpages;
+					$('.foodcheck-btn .nowPage').text(page);
+					$('.foodcheck-btn .sumPage').text(totalpages);
+				}else{
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					$('.food-check-table tr:eq('+ i +') td').eq(0).text(foodName);
+					$('.food-check-table tr:eq('+ i +') td').eq(1).text(foodUnitPrice);
+				}
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
+	});
+};
+	
+function prevInfo(){
+	var nowPage = $('.foodcheck-btn .nowPage').text();
+	var page = nowPage <= 1 ? 1 : (nowPage-1);
+	var shopName = $('.shopCheck-shopName').text();
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		data: {
+			"fn": "foodCheck",
+			"shopName": shopName,
+			"page": page
+		},
+		dataType: "json",
+		success: function(data){
+			$('.food-check-table tbody td').text("");
+			for(var i in data){
+				if(i == 0){
+					var page = data[i].page;
+					var totalpages = data[i].totalpages;
+					$('.foodcheck-btn .nowPage').text(page);
+					$('.foodcheck-btn .sumPage').text(totalpages);
+				}else{
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					$('.food-check-table tr:eq('+ i +') td').eq(0).text(foodName);
+					$('.food-check-table tr:eq('+ i +') td').eq(1).text(foodUnitPrice);
+				}
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
+	});
+};
+    	
+function nextInfo(){
+	var nowPage = $('.foodcheck-btn .nowPage').text();
+	var nowTotalPage = $('.foodcheck-btn .sumPage').text();
+	var page = nowPage >= nowTotalPage ? nowTotalPage : (nowPage-(-1));
+	var shopName = $('.shopCheck-shopName').text();
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		data: {
+			"fn": "foodCheck",
+			"shopName": shopName,
+			"page": page
+		},
+		dataType: "json",
+		success: function(data){
+			$('.food-check-table tbody td').text("");
+			for(var i in data){
+				if(i == 0){
+					var page = data[i].page;
+					var totalpages = data[i].totalpages;
+					$('.foodcheck-btn .nowPage').text(page);
+					$('.foodcheck-btn .sumPage').text(totalpages);
+				}else{
+					var foodName = data[i].foodName;
+					var foodUnitPrice = data[i].foodUnitPrice;
+					$('.food-check-table tr:eq('+ i +') td').eq(0).text(foodName);
+					$('.food-check-table tr:eq('+ i +') td').eq(1).text(foodUnitPrice);
+				}
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
+	});
+};
+
+

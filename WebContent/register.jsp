@@ -12,17 +12,18 @@
         }
         body{
             font-family:"Microsoft YaHei","SimSun";
-            background: url("images/zhou-1.jpg") no-repeat;
+            background: url("images/time.jpg") no-repeat;
             background-size: cover;
         }
         .register{
             width: 280px;
             height: 340px;
-            margin: 100px 200px;
             padding: 10px 30px;
             border: 1px solid #e0e0e0;
-            background-color: #F6F5F0;
-            position: relative;
+            background-color: #fff;
+            position: fixed;
+    		bottom: 34%;
+    		right: 16%;
         }
         .register h3{
             font-size: 24px;
@@ -267,6 +268,7 @@
 	</script>
 </head>
 <body>
+	<div id="container"></div>
 	<div class="register">
 	    <form action="RegisterCtrl" method="get" class="register-form">
 	        <h3>注册</h3>

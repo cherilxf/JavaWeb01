@@ -129,7 +129,7 @@ ul{
     margin-top: 6px;
 }
 
-.orderInfo-right .order-time,
+.orderInfo-right .orderID,
 .orderInfo-right .order-sumPrice{
     width: 100%;
     height: 16px;
@@ -140,7 +140,7 @@ ul{
 .order-box-right{
     float: left;
     width: 320px;
-    height: 480px;
+    height: 580px;
     margin: 40px 0 0 200px;
     background: #eee;
     display: none;
@@ -178,6 +178,12 @@ ul{
 .order-foodInfo .order-shopName{
     width: 100%;
     font-size: 16px;
+}
+
+.order-foodInfo .order-food-box{
+	width: 100%;
+	height: 201px;
+	overflow-y: auto;
 }
 
 .foodInfo-box{
@@ -238,7 +244,7 @@ ul{
 }
 
 .psService,
-.orderNum,
+.orderID-info,
 .orderTime,
 .payStyle{
     width: 100%;
@@ -246,7 +252,7 @@ ul{
     line-height: 32px;
 }
 .psService span,
-.orderNum span,
+.orderID-info span,
 .orderTime span,
 .payStyle span{
     display: inline-block;

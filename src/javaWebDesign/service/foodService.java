@@ -34,4 +34,10 @@ public class foodService {
 		}
 		return list;
 	}
+	
+	public ArrayList<food> getShopFood(String shopName) throws Exception{
+		ArrayList<food> list = new ArrayList<food>();
+		list = fd.queryShopFood(shopName);
+		return list;
+	}
 }

@@ -162,4 +162,26 @@ public class foodDao {
 		ds.close(dbConn);
 		return list;
 	}
+	
+	public ArrayList<food> queryShopFood(String shopName) throws Exception{
+			
+		ArrayList<food> list = new ArrayList<food>();
+		
+		DataSource ds = new DataSource();
+		Connection dbConn = ds.getConnection();
+		String sql = "select * from foodInfo where shopName =?";
+		PreparedStatement pstmt = dbConn.prepareStatement(sql);
+		pstmt.setString(1, shopName);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			food tempFood = new food();
+			tempFood.setFoodName(rs.getString("foodImg"));
+			tempFood.setFoodName(rs.getString("foodName"));
+			tempFood.setFoodUnitPrice(rs.getString("foodUnitPrice"));
+			list.add(tempFood);
+		}
+		rs.close();
+		ds.close(dbConn);
+		return list;
+	}
 }

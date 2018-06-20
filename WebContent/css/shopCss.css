@@ -64,27 +64,139 @@ body {
     padding: 0;
 }
 
-.shopInfo-contentRight{
+.shopInfo-contentRight,
+.food-contentRight{
     width: 100%;
     height: 100%;
     text-align: center;
 }
 
-.shopInfo-contentRight form{
+.shopInfo-contentRight form,
+.foodInfo,
+.orderInfo{
     display: none;
 }
 
-.shopInfo-contentRight .active form{
+.shopInfo-contentRight .active form,
+.food-contentRight .active,
+.order-contentRight .active{
     display: block;
 }
 
 .shopInfo-form table{
     border-collapse:collapse;
 }
-.shopInfo-form table tr{
-    height: 40px;
-}
-.shopInfo-form table tr td{
+
+.shopInfo-form table tr td,
+#food_manage_02 table tr th,
+#food_manage_02 table tr td{
+    width: 160px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
     border: 1px solid #ccc;
+}
+
+#food_manage_02 table{
+    float: left;
+    text-align: center;
+    margin: 80px 56px;
+}
+#food_manage_02 .foodcheck-btn{
+    float: left;
+    margin-top: 80px;
+}
+.foodcheck-btn ul{
+    list-style: none;
+}
+.foodcheck-btn ul li{
+    width: 160px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.foodcheck-btn a{
+    color: #000;
+    text-decoration: none;
+}
+
+.foodcheck-btn ul li+li{
+    border-top: 0;
+}
+.foodcheck-btn .goPage{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.foodcheck-btn .goPage-btn{
+    display: inline-block;
+    width: 32px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color: #000;
+    border: 1px solid #ccc;
+    background-color: #f15353;
+}
+
+.foodcheck-form table{
+	float: left;
+	margin: 80px 100px;
+}
+
+.foodcheck-form table tr td{
+	width: 120px;
+	height: 32px;
+	border: 1px solid #ccc;
+}
+
+
+
+/* 模态框样式 */
+.bg-model{
+	top: 0%;
+	left: 0%;
+	background: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 9999;
+	opacity: 1;
+	display: none;
+}
+.warn{
+	width: 400px;
+	height: 240px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -120px 0 0 -200px; 
+	border-radius: 4px;
+	text-align: center;
+	background-color: #fff;
+}
+.warn p{
+	width: 100%;
+	height: 60px;
+	font-size: 24px;
+	color: #f00;
+	margin-top: 65px;
+	font-family: initial;
+}
+.warn .btn-confirm,
+.warn .btn-cancel,
+.warn .btn-back{
+	width: 48px;
+	height: 24px;
+	font-size: 16px;
+	margin: 0 6px;
+	cursor: pointer;
+}
+.warn .btn-back{
+	display: none;
 }
 

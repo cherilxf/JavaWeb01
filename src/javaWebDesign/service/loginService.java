@@ -23,13 +23,4 @@ public class loginService {
 			}
 			return exist;
 		}
-		
-//		public static void main(String[] args) throws Exception {
-//			User user = new User();
-//			user.setUserName("liao");
-//			user.setPassWord("123456");
-//			LoginService ld = new LoginService();
-//			boolean flag = ld.checkLogin(user);
-//			System.out.println(flag);
-//		}
 }

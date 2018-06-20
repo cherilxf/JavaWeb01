@@ -42,11 +42,11 @@ public class shop {
 	public String getPeisongFee() {
 		return peisongFee;
 	}
-	public void setpeisongFee(String peisongFee) {
+	public void setPeisongFee(String peisongFee) {
 		this.peisongFee = peisongFee;
 	}
 	
-	public String CanheFee() {
+	public String getCanheFee() {
 		return canheFee;
 	}
 	public void setCanheFee(String canheFee) {
