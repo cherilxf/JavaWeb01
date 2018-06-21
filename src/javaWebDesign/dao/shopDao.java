@@ -9,7 +9,7 @@ import javaWebDesign.model.food;
 import javaWebDesign.model.shop;
 
 public class shopDao {
-	public shop queryShop(String shopID) throws Exception{
+	public shop queryShopByID(String shopID) throws Exception{
 		shop tempShop = new shop();
 		
 		DataSource ds = new DataSource();
@@ -17,6 +17,30 @@ public class shopDao {
 		String sql = "select * from shopInfo where shopID = ?";
 		PreparedStatement pstmt = dbConn.prepareStatement(sql);
 		pstmt.setString(1, shopID);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			tempShop.setShopID(rs.getString("shopID"));
+			tempShop.setShopName(rs.getString("shopName"));
+			tempShop.setShopAddress(rs.getString("shopAddress"));
+			tempShop.setPeisongFee(rs.getString("peisongFee"));
+			tempShop.setCanheFee(rs.getString("canheFee"));
+			tempShop.setPingfen(rs.getString("pingfen"));
+			tempShop.setSale(rs.getString("sale"));
+			tempShop.setYouhui(rs.getString("youhui"));
+		}
+		rs.close();
+		ds.close(dbConn);
+		return tempShop;
+	}
+	
+	public shop queryShopByName(String shopName) throws Exception{
+		shop tempShop = new shop();
+		
+		DataSource ds = new DataSource();
+		Connection dbConn = ds.getConnection();
+		String sql = "select * from shopInfo where shopName = ?";
+		PreparedStatement pstmt = dbConn.prepareStatement(sql);
+		pstmt.setString(1, shopName);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
 			tempShop.setShopID(rs.getString("shopID"));

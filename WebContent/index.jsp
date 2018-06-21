@@ -51,9 +51,9 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
-                        <li class="logo"><a href="#" onclick="index()">
+                        <li class="logo">
                         	<img src="images/time.jpg" alt="">
-                        </a></li>
+                        </li>
                         <li class="header-nav-active"><a href="#" onclick="index()">首页</a></li>
                         <li><a href="#" onclick="myOrder()">我的订单</a></li>
                         <li><a href="#" onclick="findFood()">发现美食</a></li>
@@ -76,7 +76,10 @@
                 </div>
                 <div class="wrapper">
                     <ul>
-                        <li class="active" id="tjsj-btn">
+                    	<li class="active" id="xzms">
+                            <a href="#">寻找美食</a>
+                        </li>
+                        <li id="tjsj-btn">
                             <a href="#">推荐商家</a>
                         </li>
                         <li id="jrcptj-btn">
@@ -102,7 +105,15 @@
             </nav>
             <div class="product-info">
                 <div class="nav-shopName"></div>
-                <div id="tjsj" class="main selected">
+                <div id="xzms" class="main selected">
+                	<div class="searcher">
+               			<input type="text" class="form-control search-box" placeholder="请输入搜索内容">
+               			<span class="input-group-btn search-btn-box">
+		                    <button class="btn btn-primary" onclick="search()">搜索</button>
+		                </span>
+                	</div>
+                </div>
+                <div id="tjsj" class="main">
                 </div>
                 <div id="jrcptj" class="main food-main">
                 </div>

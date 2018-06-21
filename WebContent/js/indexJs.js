@@ -31,6 +31,7 @@ $(function () {
         $item.css('backgroundImage','url("' + imgSrc + '")');
     });
 
+    
     // 菜品信息页面点击数量的加减和修改
     $(document).on("blur",".product-box .product-num .num",function(){
         var num = $(this).text();
@@ -678,6 +679,46 @@ function pay(){
 	
 	$('.order-state .order-state-btn').click(function(){
 		$('.order-state').hide();
+	});
+}
+
+function search(){
+	var searchTxt = $('.searcher .search-box').val();
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		dataType: "json",
+		data: {
+			"shopName": searchTxt,
+			"info": "shopSearch"
+		},
+		success: function(data){
+			var shopImg = data.shopImg;
+			var shopName = data.shopName;
+			var shopPingfen = data.pingfen;
+			var shopSale = data.sale;
+			var shopYouhui = data.youhui;
+			
+			var str = '<div class="shop-box"><a href="#"><img src="images/time.jpg';
+//				str += images/timg.jpg;
+			str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
+			str += shopName;
+			str += '</span><span class="grade"><div class="star"></div><span> ';
+			str += shopPingfen;
+			str += '</span></span><span class="sale">月售';
+			str += shopSale;
+			str += '单</span></div></div><div class="discount"><span>';
+			str += shopYouhui;
+			str += '</span></div></div>';
+			
+			$('.searcher').append(str);
+			$('.searcher').trigger('create');
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
 	});
 }
 

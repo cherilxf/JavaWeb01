@@ -53,7 +53,9 @@
 	        <div class="container">
 	            <div class="collapse navbar-collapse" id="nav_menu">
 	                <ul class="nav navbar-nav">
-	                <li><a href="#">美团</a></li>
+	                	<li class="logo">
+                        	<img src="images/time.jpg" alt="">
+	                	</li>
 	                    <li><a href="#" onclick="index()">首页</a></li>
 	                    <li><a href="#" onclick="myOrder()">我的订单</a></li>
 	                    <li><a href="#" onclick="findFood()">发现美食</a></li>

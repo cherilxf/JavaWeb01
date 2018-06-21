@@ -66,6 +66,12 @@ ul{
     float: right;
 }
 
+.logo img{
+	width: 120px;
+	height: 50px;
+	padding: 0;
+}
+
 .person-form,
 .address-form{
     width: 360px;

@@ -9,9 +9,15 @@ import javaWebDesign.model.shop;
 public class shopService {
 	shopDao sd = new shopDao();
 	
-	public shop getShop(String shopID) throws Exception{
+	public shop getShopByID(String shopID) throws Exception{
 		shop shop = new shop();
-		shop = sd.queryShop(shopID);
+		shop = sd.queryShopByID(shopID);
+		return shop;
+	}
+	
+	public shop getShopByName(String shopName) throws Exception{
+		shop shop = new shop();
+		shop = sd.queryShopByName(shopName);
 		return shop;
 	}
 	

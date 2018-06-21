@@ -44,7 +44,7 @@ public class shopCtrl extends HttpServlet {
 			shop shopInfo = new shop();
 			JSONObject jsonObject = new JSONObject();
 			try {
-				shopInfo = ss.getShop(shopID);
+				shopInfo = ss.getShopByID(shopID);
 				jsonObject.put("shopID", shopInfo.getShopID());
 				jsonObject.put("shopName", shopInfo.getShopName());
 				jsonObject.put("shopAddress", shopInfo.getShopAddress());
@@ -57,7 +57,25 @@ public class shopCtrl extends HttpServlet {
 				e.printStackTrace();
 			}
 			out.println(jsonObject);
-		}else if(fn.equals("setInfo")) {
+			
+		}else if(fn.equals("shopSearch")) {
+			String shopName = request.getParameter("shopName");
+			shop shopInfo = new shop();
+			JSONObject jsonObject = new JSONObject();
+			try {
+				shopInfo = ss.getShopByName(shopName);
+				jsonObject.put("shopID", shopInfo.getShopID());
+				jsonObject.put("shopName", shopInfo.getShopName());
+				jsonObject.put("shopAddress", shopInfo.getShopAddress());
+				jsonObject.put("peisongFee", shopInfo.getPeisongFee());
+				jsonObject.put("canheFee", shopInfo.getCanheFee());
+				jsonObject.put("pingfen", shopInfo.getPingfen());
+				jsonObject.put("sale", shopInfo.getSale());
+				jsonObject.put("youhui", shopInfo.getYouhui());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			out.println(jsonObject);
 			
 		}else if(fn.equals("foodCheck")) {
 			int page = 1;

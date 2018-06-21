@@ -75,13 +75,10 @@ ul{
     border: 2px solid #ff2a2a;
 }
 
-.logo a{
-	padding: 0;
-}
 .logo img{
 	width: 120px;
 	height: 50px;
-	background: url("images/time.jpg") no-repeat;
+	padding: 0;
 }
 
 .navBar-left p,
@@ -122,6 +119,24 @@ ul{
     background-color: #d9edf7;
 }
 
+.searcher{
+	width: 316px;
+	height: 34px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -140px;
+	margin-left: -158px;
+}
+.searcher .search-box{
+	width: 260px;
+	float: left;
+}
+.searcher .search-btn-box{
+	float: left;
+}
+
+
 .tip{
     width: 236px;
     height: 96px;
@@ -146,7 +161,8 @@ ul{
     line-height: 16px;
 }
 
-.product-info{
+.product-info,
+#xzms{
     position: relative;    
 }
 

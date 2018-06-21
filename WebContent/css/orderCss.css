@@ -72,6 +72,12 @@ ul{
     background-color: #e0e0e0;
 }
 
+.logo img{
+	width: 120px;
+	height: 50px;
+	padding: 0;
+}
+
 .order-box-left{
     float: left;
     width: 300px;
