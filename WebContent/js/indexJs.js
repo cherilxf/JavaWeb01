@@ -130,7 +130,7 @@ $(function () {
 					var foodName = data[i].foodName;
 					var foodUnitPrice = data[i].foodUnitPrice;
 					
-					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					var str = '<div class="product-box"><a href="#"><img src="images/time.jpg" alt=""></a><span class="foodTitle">';
 					str += foodName;
 					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
 					str += foodUnitPrice;
@@ -283,7 +283,8 @@ $(function () {
 					var shopSale = data[i].sale;
 					var shopYouhui = data[i].youhui;
 					
-					var str = '<div class="shop-box"><a href="#"><img src="images/time。jpg';
+					var str = '<div class="shop-box"><a href="#"><img src="images/time.jpg';
+//					str += images/timg.jpg;
 					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
 					str += shopName;
 					str += '</span><span class="grade"><div class="star"></div><span> ';
@@ -325,7 +326,7 @@ $(function () {
 					var foodName = data[i].foodName;
 					var foodUnitPrice = data[i].foodUnitPrice;
 					
-					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					var str = '<div class="product-box"><a href="#"><img src="images/time.jpg" alt=""></a><span class="foodTitle">';
 					str += foodName;
 					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
 					str += foodUnitPrice;
@@ -362,7 +363,7 @@ $(function () {
 					var shopSale = data[i].sale;
 					var shopYouhui = data[i].youhui;
 					
-					var str = '<div class="shop-box"><a href="#"><img src="images/timg.jpg';
+					var str = '<div class="shop-box"><a href="#"><img src="images/time.jpg';
 //					str += images/timg.jpg;
 					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
 					str += shopName;
@@ -406,7 +407,7 @@ $(function () {
 					var shopSale = data[i].sale;
 					var shopYouhui = data[i].youhui;
 					
-					var str = '<div class="shop-box"><a href="#"><img src="images/timg.jpg';
+					var str = '<div class="shop-box"><a href="#"><img src="images/time.jpg';
 //					str += images/timg.jpg;
 					str += '" alt=""></a><div class="shop-info"><div><span class="shop-title">';
 					str += shopName;
@@ -448,7 +449,7 @@ $(function () {
 					var foodName = data[i].foodName;
 					var foodUnitPrice = data[i].foodUnitPrice;
 					
-					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					var str = '<div class="product-box"><a href="#"><img src="images/time.jpg" alt=""></a><span class="foodTitle">';
 					str += foodName;
 					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
 					str += foodUnitPrice;
@@ -483,7 +484,7 @@ $(function () {
 					var foodName = data[i].foodName;
 					var foodUnitPrice = data[i].foodUnitPrice;
 					
-					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					var str = '<div class="product-box"><a href="#"><img src="images/time.jpg" alt=""></a><span class="foodTitle">';
 					str += foodName;
 					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
 					str += foodUnitPrice;
@@ -518,7 +519,7 @@ $(function () {
 					var foodName = data[i].foodName;
 					var foodUnitPrice = data[i].foodUnitPrice;
 					
-					var str = '<div class="product-box"><a href="#"><img src="images/timg.jpg" alt=""></a><span class="foodTitle">';
+					var str = '<div class="product-box"><a href="#"><img src="images/time.jpg" alt=""></a><span class="foodTitle">';
 					str += foodName;
 					str += '</span><div class="product-num"><input type="button" class="reduce" value="-"><input type="tel" class="num" value="0"/><input type="button" class="add" value="+"></div><p class="price-box">&yen;<span class="price">';
 					str += foodUnitPrice;

@@ -139,4 +139,21 @@ public class orderDao {
 		dbConn.close();
 		return false;
 	}
+	
+	public boolean changeState(String orderID) throws Exception{
+		DataSource ds = new DataSource();
+		Connection dbConn = ds.getConnection();
+		
+		String sql = "update orderInfo set orderState=? where orderID=?";
+		PreparedStatement pstmt = dbConn.prepareStatement(sql);
+		pstmt.setString(1,"2");
+		pstmt.setString(2,orderID);
+		int result = pstmt.executeUpdate();
+		if(result == 1){
+			return true;
+		}
+		pstmt.close();
+		dbConn.close();
+		return false;
+	}
 }

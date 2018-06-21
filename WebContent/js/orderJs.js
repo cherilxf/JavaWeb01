@@ -20,22 +20,27 @@ $(function(){
 				var orderState = data[i].orderState;
 				var orderID = data[i].orderID;
 				var orderSumPrice = data[i].orderPaySumPrice;
-				if(orderState == 1){
-					orderState = "正在配送中";
-				}else if(orderState == 2){
-					orderState = "已完成";
-				}
 				
-				var str = '<li><div class="orderInfo"><div class="orderInfo-left"><img src="images/timg.jpg" alt=""></div><div class="orderInfo-right"><p class="shop-name">';
+				var orderstate;
+				if(orderState == 1){
+					orderstate = "正在配送中";
+				}else if(orderState == 2){
+					orderstate = "已完成";
+				}
+				var str = '<li><div class="orderInfo"><div class="orderInfo-left"><img src="images/time.jpg" alt=""></div><div class="orderInfo-right"><p class="shop-name">';
                 str += shopName;
                 str += '</p><i>';
-                str += orderState;
+                str += orderstate;
                 str += '</i><p class="orderID">订单号：<span>';
                 str += orderID;
                 str += '</span></p><p class="order-sumPrice">总价：<span>';
                 str += orderSumPrice;
-                str += '</span></p></div></div></li>';
                 
+                if(orderState == 1){
+					str += '</span></p><div><button class="order-comfirm-btn">确认收货</button></div></div></div></li>';
+				}else if(orderState == 2){
+					str += '</span></p></div></div></li>';
+				}
                 $('#category_01 .order-box-left ul').prepend(str);
 			}
 			$('#category_01').trigger('create');
@@ -45,6 +50,31 @@ $(function(){
             alert(XMLHttpRequest.status);
             alert(textStatus);
 		}
+	});
+	
+	$(document).on('click','.order-info .order-comfirm-btn',function(event){
+		event.stopPropagation();
+		var  consumerID = getQueryString("account");
+		var orderID = $(this).parent().siblings('.orderID').children('span').text();
+		$.ajax({
+    		type: "get",
+    		url: "orderCtrl",
+    		dataType: "json",
+    		data: {
+    			"fn": "orderConfirm",
+    			"orderID": orderID
+    		},
+    		success: function(data){
+    			if(data.state){
+    				window.location.href = "orderInfo.jsp?account="+consumerID;
+    			}
+    		},
+    		error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert(XMLHttpRequest.readyState);
+                alert(XMLHttpRequest.status);
+                alert(textStatus);
+    		}
+        });
 	});
 	
     $(document).on('click','.order-box-left .orderInfo',function(){
@@ -73,13 +103,20 @@ $(function(){
 				var orderShiFu = data.orderShiFu;
 				var orderFood = data.orderFood;
 				
+				if(orderState == 1){
+					$('.order-title h4').text("正在配送中");
+				}else if(orderState == 2){
+					$('.order-title h4').text("订单已完成");
+				}
+				
     			$('.order-foodInfo .order-shopName').text(shopName);
+    			$('.order-food-box').html("");
     			for(var i=0;i<orderFood.length;i++){
     				var foodName = orderFood[i].foodName;
     				var foodNum = orderFood[i].foodNum;
     				var foodXiaoji = orderFood[i].foodXiaoji;
     				
-    				var str = '<div class="foodInfo-box"><div class="foodInfo-box-left"><img src="images/timg.jpg" alt=""></div><div class="foodInfo-box-right"><p><span class="foodName">';
+    				var str = '<div class="foodInfo-box"><div class="foodInfo-box-left"><img src="images/time.jpg" alt=""></div><div class="foodInfo-box-right"><p><span class="foodName">';
     				str += foodName;
     				str += '</span>×<span class="foodNum">';
     				str += foodNum;

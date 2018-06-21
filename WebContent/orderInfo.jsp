@@ -88,7 +88,7 @@
 	                    </div>
 	                    <div class="order-box-right">
 	                        <div class="order-title">
-	                            <h4>订单已完成 ></h4>
+	                            <h4></h4>
 	                            <p>感谢您对本店铺的支持，期待你的再次光临。</p>
 	                            <span>再来一单</span>
 	                        </div>

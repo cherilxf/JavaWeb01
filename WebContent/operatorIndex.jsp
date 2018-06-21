@@ -52,11 +52,11 @@
                                         <br><h1 align="center">个人信息</h1><hr />
                                         <table align="center" class="check-table">
                                             <tr>
-                                                <td>姓名</td>
+                                                <td>账号ID</td>
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td>账号</td>
+                                                <td>姓名</td>
                                                 <td></td>
                                             </tr>
                                             <tr>
@@ -73,22 +73,6 @@
                                             </tr>
                                             <tr>
                                                 <td>微信</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>QQ</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>你来自哪个城市</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>你的职业</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>爱好</td>
                                                 <td></td>
                                             </tr>
                                         </table>
@@ -114,10 +98,6 @@
                                                 <td><input type="text" id="operatorName"></td>
                                             </tr>
                                             <tr>
-                                                <td>账号</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
                                                 <td>年龄</td>
                                                 <td><input type="text" id="operatorAge"></td>
                                             </tr>
@@ -138,38 +118,6 @@
                                                 <td>微信</td>
                                                 <td>
                                                     <input type="text" id="operatorWechat">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>QQ</td>
-                                                <td>
-                                                    <input type="text" id="operatorQq">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你来自哪里哪个城市</td>
-                                                <td>
-                                                    <select id="operatorCity">
-                                                        <option value="gz">广州</option>
-                                                        <option value="sz">深圳</option>
-                                                        <option value="bj">北京</option>
-                                                        <option value="sh">上海</option>
-                                                        <option value="hz">杭州</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>请选择你的职业</td>
-                                                <td id="operatorJob">
-                                                	<label for="student"><input type="radio" id="student" name="job" value="学生"/>学生</label>
-                                                	<label for="teacher"><input type="radio" id="teacher" name="job" value="老师"/>老师</label>
-                                                	<label for="other"><input type="radio" id="other" name="job" value="其他"/>其他</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你的爱好</td>
-                                                <td>
-                                                    <input type="text" id="operatorHobby">
                                                 </td>
                                             </tr>
                                         </table>
@@ -225,38 +173,6 @@
                                                     <input type="text" id="">
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>QQ</td>
-                                                <td>
-                                                    <input type="text" id="">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你来自哪里哪个城市</td>
-                                                <td>
-                                                    <select id="">
-                                                        <option value="gz">广州</option>
-                                                        <option value="sz">深圳</option>
-                                                        <option value="bj">北京</option>
-                                                        <option value="sh">上海</option>
-                                                        <option value="hz">杭州</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>请选择你的职业</td>
-                                                <td id="operatorJob">
-                                                	<label for="student1"><input type="radio" id="student1" name="job" value="学生"/>学生</label>
-                                                	<label for="teacher1"><input type="radio" id="teacher1" name="job" value="老师"/>老师</label>
-                                                	<label for="other1"><input type="radio" id="other1" name="job" value="其他"/>其他</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你的爱好</td>
-                                                <td>
-                                                    <input type="text" id="">
-                                                </td>
-                                            </tr>
                                         </table>
                                         <div class="btn-box">
 			                                <input type="button" value="修改" id="set_info_btn1">
@@ -306,38 +222,6 @@
                                             </tr>
                                             <tr>
                                                 <td>微信</td>
-                                                <td>
-                                                    <input type="text" id="">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>QQ</td>
-                                                <td>
-                                                    <input type="text" id="">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你来自哪里哪个城市</td>
-                                                <td>
-                                                    <select id="">
-                                                        <option value="gz">广州</option>
-                                                        <option value="sz">深圳</option>
-                                                        <option value="bj">北京</option>
-                                                        <option value="sh">上海</option>
-                                                        <option value="hz">杭州</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>请选择你的职业</td>
-                                                <td id="">
-                                                	<label for="student2"><input type="radio" id="student2" name="job" value="学生"/>学生</label>
-                                                	<label for="teacher2"><input type="radio" id="teacher2" name="job" value="老师"/>老师</label>
-                                                	<label for="other2"><input type="radio" id="other2" name="job" value="其他"/>其他</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>你的爱好</td>
                                                 <td>
                                                     <input type="text" id="">
                                                 </td>

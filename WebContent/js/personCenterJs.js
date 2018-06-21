@@ -76,12 +76,12 @@ function checkInfo(){
 			var consumerTel = data.consumerTel;
 			var consumerWechat = data.consumerWechat;
 			
-			$('#shopinfo_01 .person-form table tr:eq(0) td:eq(1)').text(consumerID);
-			$('#shopinfo_01 .person-form table tr:eq(1) td:eq(1)').text(consumerName);
-			$('#shopinfo_01 .person-form table tr:eq(2) td:eq(1)').text(nichen);
-			$('#shopinfo_01 .person-form table tr:eq(3) td:eq(1)').text(conaumerAge);
-			$('#shopinfo_01 .person-form table tr:eq(4) td:eq(1)').text(consumerTel);
-			$('#shopinfo_01 .person-form table tr:eq(5) td:eq(1)').text(consumerWechat);
+			$('#category_01 .person-form table tr:eq(0) td:eq(1)').text(consumerID);
+			$('#category_01 .person-form table tr:eq(1) td:eq(1)').text(consumerName);
+			$('#category_01 .person-form table tr:eq(2) td:eq(1)').text(nichen);
+			$('#category_01 .person-form table tr:eq(3) td:eq(1)').text(conaumerAge);
+			$('#category_01 .person-form table tr:eq(4) td:eq(1)').text(consumerTel);
+			$('#category_01 .person-form table tr:eq(5) td:eq(1)').text(consumerWechat);
 			
 			$('#set_form table tr:eq(0) td:eq(1)').text(consumerID);
 		},

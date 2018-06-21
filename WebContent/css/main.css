@@ -75,6 +75,15 @@ ul{
     border: 2px solid #ff2a2a;
 }
 
+.logo a{
+	padding: 0;
+}
+.logo img{
+	width: 120px;
+	height: 50px;
+	background: url("images/time.jpg") no-repeat;
+}
+
 .navBar-left p,
 .cartfood p
 {

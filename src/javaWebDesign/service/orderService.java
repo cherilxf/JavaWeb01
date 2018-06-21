@@ -43,5 +43,11 @@ public class orderService {
 		return flag;
 	}
 	
-	
+	public boolean confirmOrder(String orderID) throws Exception{
+		boolean flag = false;
+		if(od.changeState(orderID)) {
+			flag = true;
+		}
+		return flag;
+	}
 }

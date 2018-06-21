@@ -153,6 +153,20 @@ public class orderCtrl extends HttpServlet {
 			jsonObject.put("orderShiFu", OrderInfo.getOrderShiFu());
 			jsonObject.put("orderFood", listOrderFoodInfo);
 			out.println(jsonObject);
+		}else if(fn.equals("orderConfirm")) {
+			String orderID = request.getParameter("orderID");
+			
+			JSONObject jsonObject = new JSONObject();
+			try {
+				if(os.confirmOrder(orderID)) {
+					jsonObject.put("state", true);
+				}else {
+					jsonObject.put("state", false);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			out.println(jsonObject);
 		}
 	}
 

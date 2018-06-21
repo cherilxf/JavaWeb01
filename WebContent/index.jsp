@@ -51,7 +51,9 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" onclick="index()">美团</a></li>
+                        <li class="logo"><a href="#" onclick="index()">
+                        	<img src="images/time.jpg" alt="">
+                        </a></li>
                         <li class="header-nav-active"><a href="#" onclick="index()">首页</a></li>
                         <li><a href="#" onclick="myOrder()">我的订单</a></li>
                         <li><a href="#" onclick="findFood()">发现美食</a></li>
@@ -160,7 +162,7 @@
                             </div>
                             <div class="evaluation-content">
                                 <div class="evaluation-content-left">
-                                    <img src="images/timg.jpg" alt="">
+                                    <img src="images/time.jpg" alt="">
                                 </div>
                                 <div class="evaluation-content-right">
                                     <p>匿名用户<span class="evaluation-time">2018-06-10</span></p>
