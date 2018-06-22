@@ -53,7 +53,7 @@
 	            <div class="collapse navbar-collapse" id="nav_menu">
 	                <ul class="nav navbar-nav">
 	                    <li class="logo">
-                        	<img src="images/time.jpg" alt="">
+                        	<img src="images/logo.jpg" alt="">
 	                	</li>
 	                    <li><a href="#" onclick="index()">首页</a></li>
 	                    <li class="header-nav-active"><a href="#" onclick="myOrder()">我的订单</a></li>
@@ -61,8 +61,7 @@
 	                    <li><a href="#" onclick="youHui()">优惠专区</a></li>
 	                    <li><a href="#" onclick="personCenter()">个人中心</a></li>
 	                </ul>
-	                <a href="#" id="logout">注销</a>
-	                <a href="#" id="exit">退出账号</a>
+	                <a href="InvalidateServlet" id="exit">退出账号</a>
 	            </div>
 	        </div>
 	    </nav>

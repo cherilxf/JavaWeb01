@@ -52,7 +52,7 @@
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
                         <li class="logo">
-                        	<img src="images/time.jpg" alt="">
+                        	<img src="images/logo.jpg" alt="">
                         </li>
                         <li class="header-nav-active"><a href="#" onclick="index()">首页</a></li>
                         <li><a href="#" onclick="myOrder()">我的订单</a></li>
@@ -112,6 +112,8 @@
 		                    <button class="btn btn-primary" onclick="search()">搜索</button>
 		                </span>
                 	</div>
+                	<div class="searchResult">
+		            </div>
                 </div>
                 <div id="tjsj" class="main">
                 </div>

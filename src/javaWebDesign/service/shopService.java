@@ -32,4 +32,12 @@ public class shopService {
 		list = sd.queryFoodByPage(page, pageSize,shopName);
 		return list;
 	}
+	
+	public boolean addFood(food food) throws Exception{
+		boolean flag = false;
+		if(sd.addFoodInfo(food)) {
+			flag = true;
+		}
+		return flag;
+	}
 }

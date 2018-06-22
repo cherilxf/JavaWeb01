@@ -6,7 +6,7 @@ public class food {
 	private String foodName;
 	private String foodUnitPrice;   // 单价
 	
-	public String ShopName() {
+	public String getShopName() {
 		return shopName;
 	}
 	public void setShopName(String shopName) {

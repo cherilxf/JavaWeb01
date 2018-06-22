@@ -2,15 +2,11 @@ package javaWebDesign.model;
 
 public class operatorInfo {
 	private String name;
-	private String account;
+	private String operatorID;
 	private String age;
 	private String sex;
 	private String tel;
 	private String wechat;
-	private String qq;
-	private String city;
-	private String job;
-	private String hobby;
 	
 	public String getName() {
 		return name;
@@ -19,11 +15,11 @@ public class operatorInfo {
 		this.name = name;
 	}
 	
-	public String getAccount() {
-		return account;
+	public String getOperatorID() {
+		return operatorID;
 	}
-	public void setAccount(String account) {
-		this.account = account;
+	public void setOperatorID(String operatorID) {
+		this.operatorID = operatorID;
 	}
 	
 	public String getAge() {
@@ -52,33 +48,5 @@ public class operatorInfo {
 	}	
 	public void setWechat(String wechat) {
 		this.wechat = wechat;
-	}
-	
-	public String getQq() {
-		return qq;
-	}	
-	public void setQq(String qq) {
-		this.qq = qq;
-	}
-	
-	public String getCity() {
-		return city;
-	}	
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
-	public String getJob() {
-		return job;
-	}	
-	public void setJob(String job) {
-		this.job = job;
-	}
-	
-	public String getHobby() {
-		return hobby;
-	}	
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
 	}
 }

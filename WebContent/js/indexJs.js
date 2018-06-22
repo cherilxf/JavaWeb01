@@ -264,6 +264,11 @@ $(function () {
     
     // 设置详情界面的标题
     $('.product-info .nav-shopName').text("欢迎来到美食汇");
+    
+    $('#xzms').click(function(){
+    	$('.searchResult').html("");
+    });
+    
     // 推荐商家
     $('#tjsj-btn').click(function(){
     	$('#tjsj').html("");
@@ -690,7 +695,7 @@ function search(){
 		dataType: "json",
 		data: {
 			"shopName": searchTxt,
-			"info": "shopSearch"
+			"fn": "shopSearch"
 		},
 		success: function(data){
 			var shopImg = data.shopImg;
@@ -711,7 +716,7 @@ function search(){
 			str += shopYouhui;
 			str += '</span></div></div>';
 			
-			$('.searcher').append(str);
+			$('.searchResult').append(str);
 			$('.searcher').trigger('create');
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){

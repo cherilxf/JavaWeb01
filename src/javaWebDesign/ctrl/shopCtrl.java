@@ -119,6 +119,27 @@ public class shopCtrl extends HttpServlet {
 				jsonArray.add(jsonObject);
 			}
 			out.println(jsonArray);
+		}else if(fn.equals("addFood")) {
+			String shopName = request.getParameter("shopName");
+			String foodName = request.getParameter("foodName");
+			String foodUnitPrice = request.getParameter("foodUnitPrice");
+			
+			food food = new food();
+			food.setShopName(shopName);
+			food.setFoodName(foodName);
+			food.setFoodUnitPrice(foodUnitPrice);
+			
+			JSONObject jsonObject = new JSONObject();
+			try {
+				if(ss.addFood(food)) {
+					jsonObject.put("state", true);
+				}else {
+					jsonObject.put("state", false);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			out.println(jsonObject);
 		}
 	}
 

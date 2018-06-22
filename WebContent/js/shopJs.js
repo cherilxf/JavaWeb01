@@ -159,4 +159,33 @@ function nextInfo(){
 	});
 };
 
+function addFood(){
+	var shopName = $('.shopCheck-shopName').text();
+	var foodName = $('#add_food_name').val();
+	var foodUnitPrice = $('#add_food_price').val();
+	$.ajax({
+		type: "get",
+		url: "shopCtrl",
+		dataType: "json",
+		data: {
+			"fn": "addFood",
+			"shopName": shopName,
+			"foodName": foodName,
+			"foodUnitPrice": foodUnitPrice
+		},
+		success: function(data){
+			if(data.state){
+				alert(111);
+			}else{
+				alert(error);
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.status);
+            alert(textStatus);
+		}
+	});
+}
+
 

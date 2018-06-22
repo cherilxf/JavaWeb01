@@ -14,8 +14,15 @@
 </head>
 <body>
    <!-- 头部区域 -->
-    <header>
-        <div class="header-top"></div>
+    <header class="header-box">
+    	<div class="container">
+	    	<div class="header-left">
+	        	<img src="images/logo.jpg" alt="">
+	        </div>
+	        <div class="header-right">
+	        	<h2>美食汇商家管理系统</h2>
+	        </div>
+        </div>
     </header>
     <!-- 头部区域结束 -->
 
@@ -29,7 +36,7 @@
                     <li role="presentation"><a href="#category_02" aria-controls="category_02" role="tab" data-toggle="tab">美食菜单管理</a></li>
                     <li role="presentation"><a href="#category_03" aria-controls="category_03" role="tab" data-toggle="tab">顾客订单管理</a></li>
                     <li role="presentation"><a href="#category_04" aria-controls="category_04" role="tab" data-toggle="tab">单日账单管理</a></li>
-                    <a id="exit" href="#">退出账号</a>
+                    <a href="InvalidateServlet" id="exit">退出账号</a>
                 </ul>
             </div>
             <!-- 选择卡内容 -->
@@ -47,7 +54,7 @@
                         <div class="col-md-9">
                             <div class="shopInfo-contentRight">
                                 <div role="tabpanel" class="tab-pane fade in active" id="shopinfo_01">
-                                    <form action="" method="post" class="shopInfo-form register-shop">
+                                    <form action="" method="post" class="shopInfo-form">
                                         <br><h1 align="center">查看店铺信息</h1><hr />
                                         <table align="center">
                                             <tr>
@@ -138,27 +145,23 @@
                             <div class="food-contentRight">
                                 <div role="tabpanel" class="foodInfo tab-pane fade in active" id="food_manage_01">
                                     <div>
-                                    	<form action="" method="post" class="shopInfo-form editinfo-shop">
-                                        <br><h1 align="center">增加菜单</h1><hr />
-                                        <table align="center">
-                                            <tr>
-                                                <td>菜品图片</td>
-                                                <td><input type="text"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>菜品名称</td>
-                                                <td><input type="text"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>菜品单价</td>
-                                                <td><input type="text"></td>
-                                            </tr>
-                                        </table>
-                                        <div class="btn-box">
-			                                <input type="button" value="提交">
-			                                <input type="reset" value="重置">
-			                            </div>
-                                    </form>
+	                                    <form class="shopInfo-form">
+	                                        <br><h1 align="center">增加菜单</h1><hr/>
+	                                        <table align="center" class="add-food-table">
+	                                            <tr>
+	                                                <td>菜品名称</td>
+	                                                <td><input type="text" id="add_food_name"></td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>菜品单价</td>
+	                                                <td><input type="text" id="add_food_price"></td>
+	                                            </tr>
+	                                        </table>
+	                                        <div class="btn-box">
+				                                <input type="button" value="提交" id="add_food_btn" onclick="addFood()">
+				                                <input type="reset" value="重置" class="clear_btn">
+	                            			</div>
+	                                    </form>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="foodInfo tab-pane fade in" id="food_manage_02">

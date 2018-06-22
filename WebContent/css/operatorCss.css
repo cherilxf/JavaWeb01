@@ -4,10 +4,27 @@ body {
     margin: 0;
 }
 
-.header-top{
+.header-box{
     width: 100%;
-    height: 120px;
-    background-color: pink;
+    height: 160px;
+    background-image: linear-gradient(#2aabd2,#fff);
+}
+.header-left,
+.header-right{
+	float: left;
+}
+.header-left img{
+	width: 240px;
+	height: 160px;
+	padding: 0;
+}
+.header-right h2{
+	width: 900px;
+	height: 160px;
+	line-height: 160px;
+	text-align: center;
+	margin: 0;
+	font-size: 40px;
 }
 
 .tab-content{
@@ -88,23 +105,49 @@ body {
     text-align: center;
 }
 
-#person_contentRight form,
+#person_contentRight .tab-pane,
 #shop_contentRight div{
     display: none;
 }
 
-#person_contentRight .active form,
+#person_contentRight .active,
 #shop_contentRight .active div{
     display: block;
 }
 
-.person-form table{
+.person-form table,
+.set-table{
     border-collapse:collapse;
 }
-.person-form table tr{
-    height: 40px;
-}
-.person-form table tr td{
+.person-form table tr td,
+.set-table tr td{
+	width: 160px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
     border: 1px solid #ccc;
+}
+.set-table tr td input{
+	width: 148px;
+    height: 28px;
+    margin: 2px 6px;
+}
+.set-table label{
+	margin: 0;
+}
+#operatorMan,
+#operatorWomen{
+	width: 16px;
+    height: 16px;
+}
+
+#set_form .btn-box{
+	width: 160px;
+	height: 30px;
+	margin: 10px auto;
+}
+
+.btn-box input{
+	margin: 0 6px;
 }
 

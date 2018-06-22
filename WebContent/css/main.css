@@ -135,6 +135,13 @@ ul{
 .searcher .search-btn-box{
 	float: left;
 }
+.searchResult{
+	width: 220px;
+	height: 88px;
+	position: absolute;
+	top: 130px;
+	left: 154px;
+}
 
 
 .tip{

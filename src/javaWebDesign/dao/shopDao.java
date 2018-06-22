@@ -108,4 +108,24 @@ public class shopDao {
 		ds.close(dbConn);
 		return list;
 	}
+	
+	public boolean addFoodInfo(food food) throws Exception{
+		
+		DataSource ds = new DataSource();
+		Connection dbConn = ds.getConnection();
+		String sql = "insert into foodInfo values (?,?,?,?)";
+		PreparedStatement pstmt = dbConn.prepareStatement(sql);
+		
+		pstmt.setString(1, food.getShopName());
+		pstmt.setString(2, food.getFoodImg());
+		pstmt.setString(3, food.getFoodName());
+		pstmt.setString(4, food.getFoodUnitPrice());
+		int result = pstmt.executeUpdate();
+		if(result == 1){
+			return true;
+		}
+		pstmt.close();
+		dbConn.close();
+		return false;
+	}
 }

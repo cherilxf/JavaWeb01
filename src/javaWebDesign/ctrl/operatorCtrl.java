@@ -32,62 +32,54 @@ public class operatorCtrl extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/json; charset=utf-8");
 		String fn = request.getParameter("fn");
+		PrintWriter out = response.getWriter();
 		
 		if(fn.equals("checkInfo")) {
-			String account = request.getParameter("account");
+			String operatorID = request.getParameter("operatorID");
 			
-			operatorService oService = new operatorService();
+			operatorService os = new operatorService();
 			operatorInfo info = new operatorInfo();
 			
 			try {
-				info = oService.getOperatorInfo(account);
+				info = os.getOperatorInfo(operatorID);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 			
 			JSONObject jo = new JSONObject();
 			if(info != null) {
+				jo.put("operatorID", info.getOperatorID());
 				jo.put("name", info.getName());
-				jo.put("account", info.getAccount());
 				jo.put("age", info.getAge());
 				jo.put("sex", info.getSex());
 				jo.put("tel", info.getTel());
 				jo.put("wechat", info.getWechat());
-				jo.put("qq", info.getQq());
-				jo.put("city", info.getCity());
-				jo.put("job", info.getJob());
-				jo.put("hobby", info.getHobby());
 			}
-			PrintWriter out = response.getWriter();
 			out.println(jo);
-		}else if(fn.equals("setInfo")){
-			operatorInfo oInfo = new operatorInfo();
-			oInfo.setName(request.getParameter("name"));
-			oInfo.setAccount(request.getParameter("account"));
-			oInfo.setAge(request.getParameter("age"));
-			oInfo.setSex(request.getParameter("sex"));
-			oInfo.setTel(request.getParameter("tel"));
-			oInfo.setWechat(request.getParameter("wechat"));
-			oInfo.setQq(request.getParameter("qq"));
-			oInfo.setCity(request.getParameter("city"));
-			oInfo.setJob(request.getParameter("job"));
-			oInfo.setHobby(request.getParameter("hobby"));
-			
-			boolean flag = false;
-			operatorService oService = new operatorService();
-			try {
-				if (oService.sendInfo(oInfo)) {
-					flag = true;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			PrintWriter out = response.getWriter();
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("state", flag);
-			out.print(jsonObject);
 		}
+//		}else if(fn.equals("setInfo")){
+//			operatorInfo Info = new operatorInfo();
+//			Info.setOperatorID(request.getParameter("operatorID"));
+//			Info.setName(request.getParameter("name"));
+//			Info.setAge(request.getParameter("age"));
+//			Info.setSex(request.getParameter("sex"));
+//			Info.setTel(request.getParameter("tel"));
+//			Info.setWechat(request.getParameter("wechat"));
+//			
+//			boolean flag = false;
+//			operatorService oService = new operatorService();
+//			try {
+//				if (oService.sendInfo(Info)) {
+//					flag = true;
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			
+//			JSONObject jsonObject = new JSONObject();
+//			jsonObject.put("state", flag);
+//			out.print(jsonObject);
+//		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
